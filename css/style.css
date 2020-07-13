@@ -55,7 +55,6 @@ body{
     text-decoration: none;
 }
 .links a:hover{
-    color: rgb(129, 197, 28);
-    width: 300px;
+    color: #4f399e;
 }
 

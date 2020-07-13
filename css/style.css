@@ -1,0 +1,61 @@
+body{
+    font-family: Roboto, sans-serif;
+    fontsize: 2rem;
+    background: #715ac1;
+    color: aliceblue;
+}
+.container{
+    margin-left: auto;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title{
+    font-size: 50px;
+    padding: 10px;
+}
+
+.image-container{
+    width: 200px;
+    border-radius: 30%;
+    border: 2px solid;
+    padding:10px;
+
+}
+.dados-pessoais{
+    margin-left: 10px;
+    top: 50px;
+    padding:20px;
+    
+}
+#description{
+    font-size: 1.1rem;
+    padding: 10px;
+}
+.theader{
+    border:1px solid aliceblue;
+    top: 30px;
+    padding:20px;
+    background: #604da5;
+}
+
+.tbody{
+    border:1px solid aliceblue;
+    top: 30px;
+    padding:20px;
+    background: #7560c0;
+}
+
+.links a{
+    color: aliceblue;
+    position: relative;
+    top: 30px;
+    padding: 50px;
+    text-decoration: none;
+}
+.links a:hover{
+    color: rgb(129, 197, 28);
+    width: 300px;
+}
+

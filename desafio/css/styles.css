@@ -1,0 +1,105 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+/* VARIAVEIS */
+:root {
+    --color-white: #FFF;
+    --color-orange: #ffc04c;
+  }
+  
+  /* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CORPO */
+html, body, .container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body{
+    background: var(--color-orange);
+    margin: 0;
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+/* CONTAINER PAI */
+.container{
+    background: var(--color-white);
+    margin: 2%;
+    margin-right: 2%;
+    padding:2%;
+    border: 0px solid var(--color-orange);
+    border-radius: 20px;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+    box-shadow: 0px 0px 80px -31px rgba(0,0,0,0.75);
+}
+.container h1{
+    font-size: 3rem;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+/* FORMULARIO */
+.form label{
+    font-size: 1rem;
+}
+#name{
+    width: 400px;
+    height: 30px;
+    border-bottom: 2px solid var(--color-orange);
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;  
+}
+
+#btn-save{
+    background: var(--color-orange);
+    width: 100px;
+    height: 30px;
+    border: 0px solid var(--color-orange);
+    border-radius: 5px;
+    color: var(--color-white);
+    weight: 600;
+}
+
+/* TABELA */
+
+.table{
+    margin-top: 30px;
+    background: var(--color-orange);
+    border: 1px solid var(--color-orange);
+    border-radius: 5px;
+    padding: 16px;
+    border-radius: 14px
+}
+
+table{
+    width: 800px;
+    height: 60px;
+}
+
+td, th{
+    background: var(--color-white);
+    border: 1px solid var(--color-orange);
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    align-items:center;
+    padding:10px;
+}
+.trow{
+    margin: 20px;
+}
+.theader{
+    font-weight: 600;
+}

@@ -60,6 +60,7 @@ body{
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;  
+    outline-width: 0;
 }
 
 #btn-save{

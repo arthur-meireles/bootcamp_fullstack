@@ -1,9 +1,13 @@
 window.addEventListener('load', start);
 
 var globalNames = ['name', 'name2', 'name3'];
+var inputName = null;
 
 function start(){
+    inputName = document.querySelector('#name');
+    
     preventFormSubmit();
+    activateInput();
 }
 
 function preventFormSubmit(){
@@ -13,4 +17,8 @@ function preventFormSubmit(){
 
     var form = document.querySelector('form');
     form.addEventListener('submit', handleFormSubmit);
+}
+
+function activateInput(){
+    inputName.focus();
 }

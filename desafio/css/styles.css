@@ -22,7 +22,8 @@ html, body, .container{
 }
 
 body{
-    background: var(--color-orange);
+    background: linear-gradient(to right, #ffa83d 0%, #ffa83d 55%,
+    #ff981a 70%, #f58700 100%);
     margin: 0;
     font-family: 'Source Sans Pro';
     font-weight: 400;
@@ -71,6 +72,8 @@ body{
     border-radius: 5px;
     color: var(--color-white);
     weight: 600;
+    outline-width: 0;
+    cursor: pointer;
 }
 
 /* TABELA */
@@ -97,9 +100,6 @@ td, th{
     border-radius: 8px;
     align-items:center;
     padding:10px;
-}
-.trow{
-    margin: 20px;
 }
 .theader{
     font-weight: 600;

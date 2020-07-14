@@ -1,6 +1,6 @@
 window.addEventListener("load", start);
 
-var globalNames = ["name", "name2", "name3"];
+var globalNames = ["Eduardo Johnson", "João Vitor", "João Guilherme"];
 var inputName = null;
 
 //Carrega eventos no start da pagina
@@ -26,6 +26,7 @@ function activateInput() {
   function insertName(newName) {
     globalNames.push(newName);
     console.log(globalNames);
+    render()
   }
 
   function handleTyping(event) {
@@ -38,19 +39,21 @@ function activateInput() {
   inputName.addEventListener("keyup", handleTyping);
   inputName.focus();
 }
- function render() {
-     var table = document.querySelector("table");
-     var containerTr = document.createElement("tr");
-     var containerTd = document.createElement("td");
-    var textInside = document.createTextNode("Paulinho Cesar");
 
-     containerTr.appendChild(containerTd);
-     containerTd.appendChild(textInside);
+function render() {
+    var table = document.querySelector("table");
 
-     table.appendChild(containerTr);
- }
+    table.removeAttribute("tr");
 
+  for (var i = 0; i < globalNames.length; i++) {
+    var currentName = globalNames[i];
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    var textInside = document.createTextNode(currentName);
 
-
-
+    tr.appendChild(td);
+    td.appendChild(textInside);
+    table.appendChild(tr);
+  }
+}
 

@@ -85,14 +85,24 @@ td, th{
     height: 100%;
     width: 100%;
     border-radius: 8px;
-    align-items:center;
     padding:10px;
     text-align: center;
 }
 td{
     text-align: left;
 }
-.theader{
+th{
     font-weight: 600;
     font-size: 1.5rem;
+}
+
+button{
+    background: var(--color-orange);
+    width: 100px;
+    height: 30px;
+    border: 0px solid var(--color-orange);
+    border-radius: 5px;
+    color: var(--color-white);
+    weight: bolder;
+    outline-width: 0;
 }

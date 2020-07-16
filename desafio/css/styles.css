@@ -90,6 +90,7 @@ td, th{
 }
 td{
     text-align: left;
+    cursor: pointer;
 }
 th{
     font-weight: 600;

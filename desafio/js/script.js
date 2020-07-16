@@ -43,6 +43,14 @@ function activateInput() {
     
   }
   function handleTyping(event) {
+
+    //Validacao espaco em branco
+    var hasText = !!event.target.value && event.target.value.trim() !== '';
+    if (!hasText) {
+      clearInput();
+      return;
+    }
+
     if (event.key === "Enter") {
       if (isEditing === true) {
         updateName(event.target.value);

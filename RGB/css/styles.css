@@ -1,0 +1,44 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+/* VARIAVEIS */
+:root {
+    --color-white: #FFF;
+    --color-orange: #ffc04c;
+  }
+  
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* AJUSTE CENTRAL */
+
+html, body, .container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+body{
+    background: linear-gradient(to right, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%,
+    rgba(102,102,102,1) 25%, rgba(71,71,71,1) 63%, rgba(43,43,43,1) 100%);
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-size: 1.1rem;
+    align-items: center;
+}
+.card{
+    background: #fff;
+    width: 900px;
+    height: 300px;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 80px;
+    box-shadow: 23px 23px 5px 10px rgba(0,0,0,0.27);
+}
+

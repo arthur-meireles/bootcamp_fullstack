@@ -17,20 +17,20 @@
        <!--- R --->
       <div class="r">
         <label>R</label>
-        <input type="range" value="0" name="red" min="0" max="250" />
-        <input class="number" type="number" value="0" name="redValue" disabled/>
+        <input class="range" type="range" value="0" min="0" max="250" />
+        <input class="number" id="numberRed" type="text" value="0" name="redValue" disabled/>
       </div>
     <!--- G --->
     <div class="g">
       <label>G</label>
-      <input type="range" value="0" name="green" min="0" max="250"/>
-      <input class="number" type="number" value="0" name="greenValue" disabled/>
+      <input class="range" type="range" value="0" min="0" max="250"/>
+      <input class="number" id="numberGreen" type="text" value="0" name="greenValue" disabled/>
     </div>
       <!--- B --->
      <div class="b">
       <label>B</label>
-      <input type="range" value="0" name="blue" min="0" max="250"/> 
-      <input class="number" type="number" value="0" name="blueValue" disabled/>
+      <input class="range" type="range" value="0" min="0" max="250"/> 
+      <input class="number" id="numberBlue" type="text" value="0" name="blueValue" disabled/>
      </div>
      <div class="body" style="background: rgb(0, 0, 0);">
 
@@ -41,5 +41,6 @@
     </div>
 
   </div>
+  <script src="./js/script.js"></script>
 </body>
 </html>

@@ -62,13 +62,13 @@ h1{
 
  }
 
- .number{
+ #numberRed, #numberGreen, #numberBlue{
     margin-left: 5px;
     height: 30px;
     text-align: center;
     width: 30px;
-    border: 0px solid;
-    border-bottom: 1px solid #a23b72;
+    border: 1px solid #a23b72;
+    border-radius: 5px;
     background: var(--color-white);
  }
 
@@ -76,12 +76,11 @@ h1{
  .body{
     height: 180px;
     width: 180px;
-    display: absolute;
     margin: auto;
     margin-top:50px;
+    margin-bottom: 30px;
     border: 0px solid #FFF;
     border-radius: 5px;
-    margin-bottom: 30px;
  }
 
 

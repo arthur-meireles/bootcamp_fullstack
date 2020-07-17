@@ -5,17 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/reset.css" />
   <link rel="stylesheet" href="./css/styles.css" />
-  
+
   <title>R G B it</title>
 </head>
 
 <body>
   <div class="container">
+    <h1>R.G.B it</h1>
+
     <div class="card">
-      <input type="range" name="red" />
-      <input type="range" name="green" />
-      <input type="range" name="blue" />
+       <!--- R --->
+      <div class="r">
+        <label>R</label>
+        <input type="range" value="0" name="red" min="0" max="250" />
+        <input class="number" type="number" value="0" name="redValue" disabled/>
       </div>
+    <!--- G --->
+    <div class="g">
+      <label>G</label>
+      <input type="range" value="0" name="green" min="0" max="250"/>
+      <input class="number" type="number" value="0" name="greenValue" disabled/>
+    </div>
+      <!--- B --->
+     <div class="b">
+      <label>B</label>
+      <input type="range" value="0" name="blue" min="0" max="250"/> 
+      <input class="number" type="number" value="0" name="blueValue" disabled/>
+     </div>
+     <div class="body" style="background: rgb(0, 0, 0);">
+
+    </div>
+
+      </div>
+  
     </div>
 
   </div>

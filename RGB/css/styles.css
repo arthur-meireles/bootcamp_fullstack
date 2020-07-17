@@ -46,7 +46,7 @@ h1{
     background: var(--color-white);
     width: 900px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 10px;
     box-shadow: 23px 23px 5px 10px rgba(0,0,0,0.1);
     text-align: center;
@@ -68,19 +68,19 @@ h1{
     text-align: center;
     width: 30px;
     border: 1px solid #a23b72;
-    border-radius: 5px;
+    border-radius: 8px;
     background: var(--color-white);
  }
 
 /*----- SQUARE INSIDE -----*/
- .body{
+ #body{
     height: 180px;
     width: 180px;
     margin: auto;
     margin-top:50px;
     margin-bottom: 30px;
     border: 0px solid #FFF;
-    border-radius: 5px;
+    border-radius: 8px;
  }
 
 

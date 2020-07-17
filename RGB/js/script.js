@@ -35,6 +35,6 @@ function colorfy() {
   }
 
   for (var i = 0; i < range.length; i++) {
-    range[i].addEventListener("change", writeValue);
+    range[i].addEventListener("input", writeValue);
   }
 }

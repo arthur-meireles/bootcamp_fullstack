@@ -11,6 +11,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    outline-width: 0;
 }
 
 /* AJUSTE CENTRAL */
@@ -23,15 +24,15 @@ html, body, .container{
 }
 
 body{
-    background-color: #c73e1d;
-    background-image: linear-gradient(315deg, #c73e1d 0%, #a23b72 37%, #2e86ab 100%);
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(113,90,193,1) 35%, rgba(0,212,255,1) 100%);
     font-family: 'Source Sans Pro';
     font-size: 1.1rem;
     align-items: center;
 }
 .container{
     text-align: center;
-    margin-top: 40px;
+    margin-top: 2%;
 }
 
 h1{
@@ -44,10 +45,10 @@ h1{
 
 .card{
     background: var(--color-white);
-    width: 900px;
+    width: auto;
     height: auto;
     border-radius: 8px;
-    margin-top: 10px;
+    margin: 2% -50%;
     box-shadow: 23px 23px 5px 10px rgba(0,0,0,0.1);
     text-align: center;
 }
@@ -63,13 +64,14 @@ h1{
  }
 
  #numberRed, #numberGreen, #numberBlue{
-    margin-left: 5px;
-    height: 30px;
+    height: 2%;
     text-align: center;
-    width: 30px;
-    border: 1px solid #a23b72;
-    border-radius: 8px;
-    background: var(--color-white);
+    width: 50px;
+    border: 0px solid #a23b72; 
+    
+ }
+ .number{
+    background: rgb(255, 255, 255, 0);
  }
 
 /*----- SQUARE INSIDE -----*/
@@ -79,8 +81,8 @@ h1{
     margin: auto;
     margin-top:50px;
     margin-bottom: 30px;
-    border: 1px solid #a23b72;
-    border-radius: 8px;
+    border: 5px solid rgba(2,0,36,0);
+    border-radius:5px;
  }
 
 

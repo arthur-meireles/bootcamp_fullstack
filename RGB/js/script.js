@@ -11,6 +11,7 @@ function start() {
   range = document.querySelectorAll(".range");
   number = document.querySelectorAll(".number");
   square = document.querySelector(".square");
+  square.style.backgroundColor = "#fff";
 
   //Funções
   colorfy();

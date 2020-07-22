@@ -16,8 +16,8 @@ function doSpread() {
 
 //------ Rest ------//
 function doRest() {
-	console.log(infinitySum(1, 2));
-	console.log(infinitySum(1, 2000, 1000, 212340));
+	// console.log(infinitySum(1, 2));
+	// console.log(infinitySum(1, 2000, 1000, 212340));
 }
 
 function infinitySum(...numbers) {
@@ -33,6 +33,4 @@ function doDestructuring() {
 
 	// Desestruturando
 	const { username, password } = first.login;
-
-	console.log(username, password);
 }

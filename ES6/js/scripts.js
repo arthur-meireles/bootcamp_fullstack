@@ -1,86 +1,38 @@
 "use"; // O JavaScript acusa mais erros
 
 window.addEventListener("load", () => {
-	doMap();
-	doFilter();
-	doForEach();
-	doReduce();
-	doFind();
-	doSome();
-	doEvery();
-	doSort();
+	doSpread();
+	doRest();
+	doDestructuring();
 });
 
-//------ MAP ------// (Imutável)
-function doMap() {
-	const nameEmailArray = people.map(person => {
-		return {
-			name: person.name,
-			email: person.email,
-		};
-	});
+//------ Spread ------//
+function doSpread() {
+	const mariedMan = people.filter(person => person.name.title == "Mr");
+	const mariedWoman = people.filter(person => person.name.title == "Ms");
 
-	return nameEmailArray;
+	const mariedPeople = [...mariedMan, ...mariedWoman];
 }
 
-//------ FILTER ------// (Imutável) (So aceita proposicoes verdadeiras)
-function doFilter() {
-	const olderThan50 = people.filter(person => {
-		return person.dob.age > 50;
-	});
+//------ Rest ------//
+function doRest() {
+	console.log(infinitySum(1, 2));
+	console.log(infinitySum(1, 2000, 1000, 212340));
 }
 
-//------ FOR EACH ------// (Mutável) (Atua no vetor, exceto se salvarmos em uma variavel)
-function doForEach() {
-	const mappedPeople = doMap();
-
-	mappedPeople.forEach(person => {
-		person.nameSize =
-			person.name.title.length +
-			person.name.first.length +
-			person.name.last.length;
-	});
+function infinitySum(...numbers) {
+	return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 
-//------ REDUCE ------//
-function doReduce() {
-	const totalAges = people.reduce((acumulator, current) => {
-		return acumulator + current.dob.age;
-	}, 0);
+function doDestructuring() {
+  const first = people[0];
 
-}
+  // Repetitivo
+  // const username = first.login.username;
+  // const password = first.login.password;
 
-//------ FIND ------//  (pega o primeiro da lista)
-function doFind() {
-	const found = people.find(person => {
-		return person.location.state === "Goiás";
-	});
-}
+  // Desestruturando
+  const {username, password} = first.login;
 
-//------ SOME ------//  (Se algum atende a regra == TRUE)
-function doSome() {
-	const found = people.some(person => {
-		return person.location.state === "Amazonas";
-	});
-
-}
-
-//------ EVERY ------//  (Se todos atendem a regra == TRUE)
-function doEvery() {
-	const every = people.every(person => {
-		return person.nat === "BR";
-	});
-
-}
-
-//------ SORT ------//  (ordenacao)
-function doSort() {
-	const mappedPeople = people
-		.map(person => {
-			return { name: person.name.first };
-		})
-		.filter(person => person.name.startsWith("A"))
-		.sort((a, b) => {
-			return a.name.localeCompare(b.name);
-		});
+  console.log(username, password);
 }

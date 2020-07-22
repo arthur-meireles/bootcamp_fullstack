@@ -48,7 +48,6 @@ function doReduce() {
 		return acumulator + current.dob.age;
 	}, 0);
 
-	console.log(totalAges);
 }
 
 //------ FIND ------//  (pega o primeiro da lista)
@@ -63,7 +62,7 @@ function doSome() {
 	const found = people.some(person => {
 		return person.location.state === "Amazonas";
 	});
-	console.log(found);
+
 }
 
 //------ EVERY ------//  (Se todos atendem a regra == TRUE)
@@ -71,7 +70,7 @@ function doEvery() {
 	const every = people.every(person => {
 		return person.nat === "BR";
 	});
-	console.log(every);
+
 }
 
 //------ SORT ------//  (ordenacao)

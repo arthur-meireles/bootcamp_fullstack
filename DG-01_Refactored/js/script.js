@@ -1,17 +1,17 @@
 //Estado da Aplicação
 let globalNames = [
-	"Eduardo Johnson",
-	"João Vitor",
-	"João Guilherme",
-	"Laurrane Maira Ferreira",
+	'Eduardo Johnson',
+	'João Vitor',
+	'João Guilherme',
+	'Laurrane Maira Ferreira',
 ];
 
 let inputName = null;
 let isEditing = false;
 let currentIndex = null;
 
-window.addEventListener("load", () => {
-	inputName = document.querySelector("#name");
+window.addEventListener('load', () => {
+	inputName = document.querySelector('#name');
 	preventFormSubmit();
 	activateInput();
 	render();
@@ -23,8 +23,8 @@ function preventFormSubmit() {
 		event.preventDefault();
 	}
 
-	let form = document.querySelector("form");
-	form.addEventListener("submit", handleFormSubmit);
+	let form = document.querySelector('form');
+	form.addEventListener('submit', handleFormSubmit);
 }
 
 //Funcao que captura escrita e da foco ao campo
@@ -41,13 +41,13 @@ function activateInput() {
 	}
 	function handleTyping(event) {
 		//Validacao espaco em branco
-		let hasText = !!event.target.value && event.target.value.trim() !== "";
+		let hasText = !!event.target.value && event.target.value.trim() !== '';
 		if (!hasText) {
 			clearInput();
 			return;
 		}
 
-		if (event.key === "Enter") {
+		if (event.key === 'Enter') {
 			if (isEditing === true) {
 				updateName(event.target.value);
 			} else {
@@ -60,13 +60,13 @@ function activateInput() {
 		}
 	}
 
-	inputName.addEventListener("keyup", handleTyping);
+	inputName.addEventListener('keyup', handleTyping);
 	inputName.focus();
 }
 
 //RENDERIZAR ARRAY NA LISTA
 function render() {
-	let table = document.querySelector("table");
+	let table = document.querySelector('table');
 	table.innerHTML =
 		'<th class="theader">Contatos</th><th class="theader">Ações</th>';
 
@@ -90,13 +90,13 @@ function render() {
 
 				render();
 			}
-			let span = document.createElement("span");
-			let td2 = document.createElement("td");
+			let span = document.createElement('span');
+			let td2 = document.createElement('td');
 			span.innerHTML = '<span class="material-icons">delete_forever</span>';
 			td2.appendChild(span);
 			tr.appendChild(td2);
 
-			span.addEventListener("click", deleteName);
+			span.addEventListener('click', deleteName);
 		}
 
 		//tornando editavel
@@ -108,10 +108,10 @@ function render() {
 		}
 
 		//Montando Lista
-		let tr = document.createElement("tr");
-		let td = document.createElement("td");
+		let tr = document.createElement('tr');
+		let td = document.createElement('td');
 		let name = document.createTextNode(currentName);
-		td.addEventListener("click", editItem); // Adicionando evento ao elemento td
+		td.addEventListener('click', editItem); // Adicionando evento ao elemento td
 
 		td.appendChild(name); // td escreve o name dentro
 		tr.appendChild(td); //tr monta um td dentro
@@ -129,6 +129,6 @@ function render() {
 }
 
 function clearInput() {
-	inputName.value = "";
+	inputName.value = '';
 	inputName.focus();
 }

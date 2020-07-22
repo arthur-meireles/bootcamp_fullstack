@@ -1,6 +1,6 @@
-"use"; // O JavaScript acusa mais erros
+'use'; // O JavaScript acusa mais erros
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
 	doSpread();
 	doRest();
 	doDestructuring();
@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
 
 //------ Spread ------//
 function doSpread() {
-	const mariedMan = people.filter(person => person.name.title == "Mr");
-	const mariedWoman = people.filter(person => person.name.title == "Ms");
+	const mariedMan = people.filter(person => person.name.title == 'Mr');
+	const mariedWoman = people.filter(person => person.name.title == 'Ms');
 
 	const mariedPeople = [...mariedMan, ...mariedWoman];
 }
@@ -25,14 +25,14 @@ function infinitySum(...numbers) {
 }
 
 function doDestructuring() {
-  const first = people[0];
+	const first = people[0];
 
-  // Repetitivo
-  // const username = first.login.username;
-  // const password = first.login.password;
+	// Repetitivo
+	// const username = first.login.username;
+	// const password = first.login.password;
 
-  // Desestruturando
-  const {username, password} = first.login;
+	// Desestruturando
+	const { username, password } = first.login;
 
-  console.log(username, password);
+	console.log(username, password);
 }

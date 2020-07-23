@@ -16,11 +16,10 @@ window.addEventListener('load', () => {
 	followers = document.querySelector('.followers');
 	loc = document.querySelector('.location');
 
-    doFetch();
-    //----- Promisse ------
-	divisionPromise(12,0).then(result => {
-        console.log(result)
-    }).catch(errMsg => console.log('Falha na Divisao | ' + errMsg));
+	doFetch();
+	//----- Promisse ------
+	executeDivisionPromise();
+	executeDivisionPromiseAsyncAwait();
 });
 
 const doFetch = () => {
@@ -53,3 +52,12 @@ function divisionPromise(a, b) {
 		resolve(a / b);
 	});
 }
+
+function executeDivisionPromise() {
+	divisionPromise(12, 1)
+		.then(result => {
+			console.log('o resultado é: ' + result);
+		})
+		.catch(errMsg => console.log('Falha nessa parada | ' + errMsg));
+}
+

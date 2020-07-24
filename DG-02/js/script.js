@@ -35,16 +35,12 @@ window.addEventListener('load', () => {
 
 	//Invocando funções
 	fetchCountries();
-	
 });
 
-function fetchCountries() {
-	fetch('https://restcountries.eu/rest/v2/all')
-		.then(res => res.json())
-		.then(json => {
-            allCountries = json;
-            console.log(allCountries);
-		});
-}
+async function fetchCountries() {
+	const res = await fetch('https://restcountries.eu/rest/v2/all'); //Traz binário
+	const json = await res.json(); //converte em json()
+	allCountries = json;
 
-//https://restcountries.eu/rest/v2/all
+	console.log(allCountries);
+}

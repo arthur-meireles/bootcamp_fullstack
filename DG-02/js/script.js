@@ -40,7 +40,15 @@ window.addEventListener('load', () => {
 async function fetchCountries() {
 	const res = await fetch('https://restcountries.eu/rest/v2/all'); //Traz binário
 	const json = await res.json(); //converte em json()
-	allCountries = json;
+	allCountries = json.map(country => {
+		//para cada 1 que percorrer vai =>
+		return {
+			id: country.numericCode,
+			name: country.translations.pt,
+			population: country.population,
+			flag: country.flag,
+		};
+	});
 
 	console.log(allCountries);
 }

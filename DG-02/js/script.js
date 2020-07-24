@@ -1,6 +1,6 @@
 /*
-********* ESTADO DA APLICAÇÃO [state] *********
-*/
+ ********* ESTADO DA APLICAÇÃO [state] *********
+ */
 
 let tabCountries = null;
 let tabFavorites = null;
@@ -17,8 +17,8 @@ let totalPopulationFavorites = 0;
 let numberFormat = null;
 
 /*
-********* ON LOAD *********
-*/
+ ********* ON LOAD *********
+ */
 
 window.addEventListener('load', () => {
 	//Mapeando a DOM
@@ -33,10 +33,18 @@ window.addEventListener('load', () => {
 
 	numberFormat = Intl.NumberFormat('pt-BR');
 
-    //Invocando funções
+	//Invocando funções
 	fetchCountries();
+	
 });
 
 function fetchCountries() {
-	console.log('fetching countries...');
+	fetch('https://restcountries.eu/rest/v2/all')
+		.then(res => res.json())
+		.then(json => {
+            allCountries = json;
+            console.log(allCountries);
+		});
 }
+
+//https://restcountries.eu/rest/v2/all

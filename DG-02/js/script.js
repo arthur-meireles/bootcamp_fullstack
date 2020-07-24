@@ -43,13 +43,13 @@ async function fetchCountries() {
 	//prettier-ignore
 	allCountries = json.map(country => {//para cada 1 que percorrer vai =>
         //Desestruturando
-        const {numericCode, translations, population , flag} = country; 
+        const { numericCode, translations, population , flag} = country; 
 
 		return {
 			id: numericCode,
 			name: translations.pt,
-			population: population,
-			flag: flag,
+			population,
+			flag
 		};
 	});
 

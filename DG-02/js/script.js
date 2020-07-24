@@ -97,12 +97,12 @@ function renderCountrieList() {
 }
 
 function renderFavorites() {
-    let favoritesHTML = '';
+	let favoritesHTML = '';
 
-    favoriteCountries.forEach(country =>{
-        const {name, population, flag, id} = country;
+	favoriteCountries.forEach(country => {
+		const { name, population, flag, id } = country;
 
-        const favoriteCountryHTML = `
+		const favoriteCountryHTML = `
             <div class="country">
                 <div>
                     <a id=${id} class="material-icons">
@@ -122,21 +122,50 @@ function renderFavorites() {
         `;
 		favoritesHTML += favoriteCountryHTML;
 	});
-    tabFavorites.innerHTML = favoritesHTML;
-    }
-
-function renderSummary() {
-    //Total países
-    countCountries.textContent = allCountries.length;
-    countFavorites.textContent = favoriteCountries.length;
-
-    //Somando a populacao
-    const totalPopulation = allCountries.reduce((accumulator, current)=>{
-        return accumulator + current.population
-    }, 0);
-
-    totalPopulationList.textContent = totalPopulation;
-
+	tabFavorites.innerHTML = favoritesHTML;
 }
 
-function handleCountrieButtons() {}
+function renderSummary() {
+	//Total países
+	countCountries.textContent = allCountries.length;
+	countFavorites.textContent = favoriteCountries.length;
+
+	//Somando a populacao
+	const totalPopulation = allCountries.reduce((accumulator, current) => {
+		return accumulator + current.population;
+	}, 0);
+
+	totalPopulationList.textContent = totalPopulation;
+
+	//Somando a populacao favoritos
+	const totalFavoritePopulation = favoriteCountries.reduce(
+		(accumulator, current) => {
+			return accumulator + current.population;
+		},
+		0,
+	);
+
+	totalPopulationFavorites.textContent = totalFavoritePopulation;
+}
+
+function handleCountrieButtons() {
+	const addButtons = Array.from(tabCountries.querySelectorAll('a'));
+    const removeButtons = Array.from(tabFavorites.querySelectorAll('a'));
+    
+	addButtons.forEach(button => {
+		button.addEventListener('click', () => addToFavorites(button.id));
+	});
+
+	removeButtons.forEach(button => {
+		button.addEventListener('click', () => removeFromFavorites(button.id));
+	});
+}
+
+function addToFavorites(id) {
+    const countryToAdd = allCountries.find(button => button.id === id); 
+    
+    favoriteCountries = [...favoriteCountries, countryToAdd];
+    render();
+}
+
+function removeFromFavorites(id) {}

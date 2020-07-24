@@ -162,9 +162,19 @@ function handleCountrieButtons() {
 }
 
 function addToFavorites(id) {
-    const countryToAdd = allCountries.find(button => button.id === id); 
+    //Busca o id do pais pelo botão
+    const countryToAdd = allCountries.find(country => country.id === id); 
     
+    //Espalha o array atual + a nova country
     favoriteCountries = [...favoriteCountries, countryToAdd];
+
+    //Ordena a lista de favoritos por nome
+    favoriteCountries.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+    })
+    //Atribui uma nova lista total sem o id do favorito 
+    allCountries = allCountries.filter(country => country.id !== id);
+
     render();
 }
 

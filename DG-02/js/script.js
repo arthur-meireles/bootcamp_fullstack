@@ -48,9 +48,12 @@ async function fetchCountries() {
 		return {
 			id: numericCode,
 			name: translations.pt,
-			population,
+            population,
+            formattedPopulation: formatNumber(population),
 			flag
 		};
+    }).sort((a, b) => {
+        return a.name.localeCompare(b.name);
     });
 
 	//Montando a tela
@@ -67,7 +70,7 @@ function render() {
 function renderCountrieList() {
 	let countriesHTML = '';
 	allCountries.forEach(country => {
-		const { name, population, flag, id } = country;
+		const { name, population, formattedPopulation, flag, id } = country;
 
 		const countryHTML = `
             <div class="country">
@@ -85,7 +88,7 @@ function renderCountrieList() {
             <div class="nome">
                 <ul>
                     <li>${name}</li>
-                    <li>${population}</li>
+                    <li>${formattedPopulation}</li>
                 </ul>
             </div>
 
@@ -100,7 +103,7 @@ function renderFavorites() {
 	let favoritesHTML = '';
 
 	favoriteCountries.forEach(country => {
-		const { name, population, flag, id } = country;
+		const { name, population, formattedPopulation, flag, id } = country;
 
 		const favoriteCountryHTML = `
             <div class="country">
@@ -115,7 +118,7 @@ function renderFavorites() {
                 <div class="nome">
                     <ul>
                         <li>${name}</li>
-                        <li>${population}</li>
+                        <li>${formattedPopulation}</li>
                     </ul>
                 </div>
             </div>
@@ -133,9 +136,9 @@ function renderSummary() {
 	//Somando a populacao
 	const totalPopulation = allCountries.reduce((accumulator, current) => {
 		return accumulator + current.population;
-	}, 0);
-
-	totalPopulationList.textContent = totalPopulation;
+    }, 0);
+    
+	totalPopulationList.textContent = formatNumber(totalPopulation);
 
 	//Somando a populacao favoritos
 	const totalFavoritePopulation = favoriteCountries.reduce(
@@ -145,13 +148,13 @@ function renderSummary() {
 		0,
 	);
 
-	totalPopulationFavorites.textContent = totalFavoritePopulation;
+	totalPopulationFavorites.textContent = formatNumber(totalFavoritePopulation);
 }
 
 function handleCountrieButtons() {
 	const addButtons = Array.from(tabCountries.querySelectorAll('a'));
-    const removeButtons = Array.from(tabFavorites.querySelectorAll('a'));
-    
+	const removeButtons = Array.from(tabFavorites.querySelectorAll('a'));
+
 	addButtons.forEach(button => {
 		button.addEventListener('click', () => addToFavorites(button.id));
 	});
@@ -162,20 +165,39 @@ function handleCountrieButtons() {
 }
 
 function addToFavorites(id) {
-    //Busca o id do pais pelo botão
-    const countryToAdd = allCountries.find(country => country.id === id); 
-    
-    //Espalha o array atual + a nova country
-    favoriteCountries = [...favoriteCountries, countryToAdd];
+	//Busca o id do pais pelo botão
+	const countryToAdd = allCountries.find(country => country.id === id);
 
-    //Ordena a lista de favoritos por nome
-    favoriteCountries.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-    })
-    //Atribui uma nova lista total sem o id do favorito 
-    allCountries = allCountries.filter(country => country.id !== id);
+	//Espalha o array atual + a nova country
+	favoriteCountries = [...favoriteCountries, countryToAdd];
 
-    render();
+	//Ordena a lista de favoritos por nome
+	favoriteCountries.sort((a, b) => {
+		return a.name.localeCompare(b.name);
+	});
+	//Atribui uma nova lista total sem o id do favorito
+	allCountries = allCountries.filter(country => country.id !== id);
+
+	render();
 }
 
-function removeFromFavorites(id) {}
+function removeFromFavorites(id) {
+	//Busca o id do pais pelo botão
+	const countryToRemove = favoriteCountries.find(country => country.id === id);
+
+	//Espalha o array atual + a nova country
+	allCountries = [...allCountries, countryToRemove];
+
+	//Ordena a lista de favoritos por nome
+	allCountries.sort((a, b) => {
+		return a.name.localeCompare(b.name);
+	});
+	//Atribui uma nova lista total sem o id do favorito
+	favoriteCountries = favoriteCountries.filter(country => country.id !== id);
+
+	render();
+}
+
+function formatNumber(number) {
+	return numberFormat.format(number);
+}

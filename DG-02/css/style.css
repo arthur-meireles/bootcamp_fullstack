@@ -58,9 +58,14 @@ H6 {
 }
 
 img{
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  margin-right: 10px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
  

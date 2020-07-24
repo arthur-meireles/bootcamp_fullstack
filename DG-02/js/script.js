@@ -53,5 +53,45 @@ async function fetchCountries() {
 		};
 	});
 
-	console.log(allCountries);
+	//Montando a tela
+	render();
 }
+
+function render() {
+	renderCountrieList();
+	renderFavorites();
+	renderSummary();
+	handleCountrieButtons();
+}
+
+function renderCountrieList() {
+	let countriesHTML = '<div>';
+	allCountries.forEach(country => {
+		const { name, population, flag, id } = country;
+
+		const countryHTML = `
+            <div class="country">
+
+            <div>
+            <a id=${id} class="material-icons">
+            add_circle_outlined
+            </a>
+            </div>
+
+            <div class="flag">
+                <img src="${flag}" alt="${name}">
+            </div>
+
+            <div class="nome">
+                ${name}
+            </div>
+
+            </div>
+        `;
+		countriesHTML += countryHTML;
+	});
+	tabCountries.innerHTML = countriesHTML;
+}
+function renderFavorites() {}
+function renderSummary() {}
+function handleCountrieButtons() {}

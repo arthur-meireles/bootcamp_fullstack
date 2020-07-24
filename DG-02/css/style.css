@@ -15,11 +15,25 @@ body {
     text-align: left;
     flex: 0 1 300px;
     flex: 1 1 300px;
-    border: 1px solid red;
+    border: 0px solid red;
     border-radius: 10px;
     background: lightpink;
     padding: 10px;
     margin: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.21);
+  }
+  .tabCountries{
+    align-items: center;
+    margin: 10px;
+  }
+  .country{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px;
+  }
+  .country > div{
+    margin-left: 8px;
   }
 
 h1 {
@@ -35,6 +49,18 @@ h1 {
 H6 {
     font-size: 1rem;
     font-weight: 300;
+}
+
+.material-icons{
+  color: #ececec;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+img{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
  

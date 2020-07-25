@@ -3,31 +3,50 @@
  * **/
 
 let allUsers = [];
+let usersHTML = null;
 
 window.addEventListener('load', () => {
-	//Implementa variaveise
+	//Implementa variaveis
+	usersHTML = document.querySelector('.users');
 
 	//Funcoes
 	fetchUsers();
 });
 
-function fetchUsers() {
-    allUsers = user.map(user => {
-        const name = `${user.name.first} ${user.name.last}`;
-        const {gender} = user;
-        return {
-            name,
-            age: user.dob.age,
-            gender
-        };
-    }).sort((a, b) => a.name.localeCompare(b.name))
+async function fetchUsers() {
+	allUsers = await user
+		.map(user => {
+			const name = `${user.name.first} ${user.name.last}`;
+			const { gender, picture } = user;
+			return {
+				name,
+				age: user.dob.age,
+				gender,
+				picture: picture.large,
+			};
+		})
+		.sort((a, b) => a.name.localeCompare(b.name));
 
-    console.log(allUsers);
-    render();
+	console.log(allUsers);
+	render();
 }
-
 
 function render() {
-    renderUserList();
+	renderUserList();
 }
 
+function renderUserList() {
+	let usersListHTML = '';
+	allUsers.forEach(user => {
+        let {age, gender, name, picture} = user;
+        let userListHTML = 
+        `<div class="person">
+            <img src="${picture}">
+            <p>${name} | ${age} anos</p>
+        </ul>
+        </div>`
+
+        usersListHTML += userListHTML;
+    });
+    usersHTML.innerHTML = usersListHTML;
+}

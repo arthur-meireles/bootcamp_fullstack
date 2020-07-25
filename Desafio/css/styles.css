@@ -99,3 +99,27 @@ button{
     text-shadow: 4px 4px 2px #1b1b2f;; 
     box-shadow: 5px 5px 2px 0px #e43f5a;
   }
+
+  .users{
+      font-size:  1rem;
+      width: 100%;
+  }
+  .person{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+  }
+
+  img{
+      border-radius: 50%;
+      display: block;
+      margin: 0 20px;
+      height: 64px;
+      width: 64px;
+
+  }
+  p{
+    text-align: center;
+  }
+  

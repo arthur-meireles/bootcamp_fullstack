@@ -70,6 +70,7 @@ button{
     border-radius: 10px;
     font-weight: 600;
     align-items: center;
+    cursor: pointer;
 }
 
 /************ BODY ************/
@@ -78,8 +79,8 @@ button{
     flex-wrap: wrap;
   }
 
-  h2{
-    font-size: 1.2rem;
+  div{
+    font-size: 1rem;
     text-shadow: 4px 4px 2px #1b1b2f;  
     padding: 10px; 
 }
@@ -117,9 +118,16 @@ button{
       margin: 0 20px;
       height: 64px;
       width: 64px;
+      box-shadow: 4px 4px 2px 0px #e43f5a;
 
   }
   p{
     text-align: center;
   }
-  
+  li{
+      padding: 10px;
+  }
+  a{
+      color: #e43f5a;
+      text-shadow: 4px 4px 2px #1b1b2f;
+  }

@@ -1,20 +1,28 @@
 /**
- *          ESTADO DA APLICAÇÃO
+ *          STATE OF APP
  * **/
 
 let allUsers = [];
+let searchedUsers = [];
 let usersHTML = null;
+let input = null;
+let search = null;
+
+/**
+ *          IMPLEMENTATION
+ * **/
 
 window.addEventListener('load', () => {
-	//Implementa variaveis
 	usersHTML = document.querySelector('.users');
+	input = document.querySelector('#input');
 
-	//Funcoes
+    //Functions
+    preventFormSubmit()
 	fetchUsers();
 });
 
-async function fetchUsers() {
-	allUsers = await user
+function fetchUsers() {
+	allUsers = user
 		.map(user => {
 			const name = `${user.name.first} ${user.name.last}`;
 			const { gender, picture } = user;
@@ -27,8 +35,7 @@ async function fetchUsers() {
 		})
 		.sort((a, b) => a.name.localeCompare(b.name));
 
-	console.log(allUsers);
-	render();
+	doSearch();
 }
 
 function render() {
@@ -37,16 +44,56 @@ function render() {
 
 function renderUserList() {
 	let usersListHTML = '';
-	allUsers.forEach(user => {
-        let {age, gender, name, picture} = user;
-        let userListHTML = 
-        `<div class="person">
+	searchedUsers.forEach(user => {
+		let { age, gender, name, picture } = user;
+		let userListHTML = `<div class="person">
             <img src="${picture}">
             <p>${name} | ${age} anos</p>
         </ul>
-        </div>`
+        </div>`;
 
-        usersListHTML += userListHTML;
-    });
+		usersListHTML += userListHTML;
+	});
     usersHTML.innerHTML = usersListHTML;
+    resetSearch();
+}
+
+function doSearch() {
+	function handleSearch() {
+		input.addEventListener('keyup', () => {
+			search = event.target.value;
+			searchedUsers = allUsers.filter(user => {
+				return user.name.includes(search);
+				
+            });
+            render();
+        });
+        input.addEventListener('keyup', () => {
+            if(event.key === 'Enter') {
+                search = event.target.value;
+			searchedUsers = allUsers.filter(user => {
+				return user.name.includes(search);
+				
+            });
+            console.log(searchedUsers);
+            render();
+            } return
+        });
+        
+	}
+    handleSearch();
+    
+}
+
+function resetSearch(){
+    searchedUsers = allUsers;
+}
+
+function preventFormSubmit() {
+	function handleFormSubmit(event) {
+		event.preventDefault();
+	}
+
+	var form = document.querySelector('form');
+	form.addEventListener('submit', handleFormSubmit);
 }

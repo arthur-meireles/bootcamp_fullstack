@@ -176,8 +176,8 @@ const user = [
 		gender: 'male',
 		name: {
 			title: 'Mr',
-			first: 'Eliseu',
-			last: 'Castro',
+			first: 'Adalgamir',
+			last: 'Global',
 		},
 		location: {
 			street: {

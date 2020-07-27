@@ -5,7 +5,6 @@
 <h1 align="center">
   Bootcamp Fullstack 
 </h1>
-<hr>
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/arthur-meireles/bootcamp_fullstack">

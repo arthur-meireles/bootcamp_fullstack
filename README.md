@@ -39,7 +39,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 <br>
 <p><img src="http://g.recordit.co/Ma04N39MRS.gif" alt="Recordit GIF" style="max-width:100%;"></p>
 <br>
-<p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e varios metodos de manipulação de arrays trazidos pelo ES6. Também me esforçei em entregar algo responsivo.</p>
+<p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e vários métodos de manipulação de arrays trazidos pelo ES6. Também me esforcei em entregar algo responsivo.</p>
 
 <hr style="width:30%;">
 

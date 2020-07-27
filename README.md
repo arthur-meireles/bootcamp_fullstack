@@ -23,12 +23,11 @@
 
 <br>
 
-<hr>
 
 ## 💻 Bootcamp
 
 O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intensiva e que habilite o profissional para atuar como desenvolvedor Full Stack.
-<hr>
+
 
 ## 💻 Módulo 01
 <h4>Trabalho prático</h4>
@@ -37,6 +36,8 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 <br>
 <p>RGB Picker</p>
 <br>
+
+  <hr style="width:50%;">
   
 <h4>Desafio</h4>
 <br>

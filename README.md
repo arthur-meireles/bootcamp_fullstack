@@ -15,89 +15,28 @@
 </p>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Subindo">Como subir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-bootcamp">O Bootcamp</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-modulo-01">Módulo 1</a>
 </p>
 
 <br>
 
 <p align="center">
-  <img alt="Frontend" src=".github/GuiaPerguntas.png" width="100%">
+  <img alt="Frontend" src=".github/FullStack.png" width="100%">
 </p>
 <hr>
 
-## 📚 Tecnologias
+## 💻 Bootcamp
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [Node.js](https://nodejs.org/pt-br/)
-- [Express](https://expressjs.com/pt-br/)
-- [Sequelize](https://sequelize.org/)
-- [Ejs](https://ejs.co/)
-- [Bootstrap](https://getbootstrap.com/)
-- [MySql](https://www.mysql.com/)
+O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intensiva e que habilite o profissional para atuar como desenvolvedor Full Stack.
 <hr>
 
-## 💻 Projeto
-
-O Guia Perguntas é um projeto estilo fórum de perguntas e respostas, criado apartir de um curso de Nodejs na udemy.(https://www.udemy.com/course/formacao-nodejs)
-<hr>
-
-## 👨‍💻 Subindo
-<p>Para subir o projeto na sua máquina, você precisa:</p>
+## 💻 Módulo 01
+<h4>Trabalho prática</h4>
 <br>
-<p>Ter o node e npm instalados e atualizados.</p>
+<p>Text about</p>
 <br>
 <p><img src="http://g.recordit.co/omQ42wRpjc.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Clone o projeto onde preferir:</p>
-<br>
-<p><img src="http://g.recordit.co/X5Lla8Jxcs.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Abra o projeto no seu editor:</p>
-<br>
-<p><img src="http://g.recordit.co/SMIFIpMhSr.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>  
-
-<p>Caso precise instalar o mysql, baixe<a href="https://dev.mysql.com/downloads/windows/installer/8.0.html"> aqui</a>.</p>
-<br>
-
-<p>Execute o instalador:</p>
-<p><img src="http://g.recordit.co/raOi2Kl6e9.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Apos completar, dê "Next">"Next". Até chegar na tela abaixo:</p>
-<p><img src="http://g.recordit.co/raOi2Kl6e9.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Depois termine a instalação, utilizando a senha "12345678"</p>
-<p><img src="http://g.recordit.co/JIWaPJazRI.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Caso já possua o mysql com outra senha, altere no arquivo "database.js"</p>
-<p><img src="http://g.recordit.co/efu3uiCENV.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Eu utilizo o Mysql Workbench, se precisar baixe<a href="https://dev.mysql.com/downloads/workbench/"> aqui</a>.</p>
-<br>
-
-<p>Abra o MysqlWorkbench e crie o database "guiaperguntas"</p>
-<p><img src="http://g.recordit.co/XuKDqGacie.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Abra o terminal na pasta do seu projeto e dê o comando "npm install"</p>
-<p><img src="http://g.recordit.co/NIqwTX5rPF.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Ainda com o terminal aberto e mysql também, digite o comando "npm start"</p>
-<p><img src="http://g.recordit.co/A5ASDYHu2w.gif" alt="Recordit GIF" style="max-width:100%;"></p>
-<br>
-
-<p>Agora é só abrir seu navegador e ir até a url <a href="http://localhost:3333">localhost:3333</a></p>
-<p><img src="http://g.recordit.co/hcdSGjbLlY.gif" alt="Recordit GIF" style="max-width:100%;"></p>
 <br>
 
 <hr>

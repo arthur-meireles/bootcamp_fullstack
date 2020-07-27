@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
 	loc = document.querySelector('.location');
 
 	doFetch();
-	//----- Promisse ------
+	//----- Promisse -----
 	executeDivisionPromise();
 	executeDivisionPromiseAsyncAwait();
 });

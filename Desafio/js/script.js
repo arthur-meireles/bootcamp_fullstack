@@ -36,10 +36,11 @@ function fetchUsers() {
 				name,
 				age: user.dob.age,
 				gender,
-				picture: picture.large,
+				picture: picture.large
 			};
 		})
 		.sort((a, b) => a.name.localeCompare(b.name));
+		console.log(allUsers);
 
 	doSearch();
 }
@@ -56,7 +57,7 @@ function renderUserList() {
 		let { age, gender, name, picture } = user;
 		let userListHTML = `<div class="person">
             <img src="${picture}">
-            <p>${name} | <a>${age} anos</a></p>
+			<p>${name} | <a>${age} anos</a></p>
         </ul>
         </div>`;
 

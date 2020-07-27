@@ -21,31 +21,26 @@
   <a href="#-módulo-01">Módulo 01</a>
 </p>
 
-<br>
-
 
 ## 💻 Bootcamp
 
 O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intensiva e que habilite o profissional para atuar como desenvolvedor Full Stack.
 
 
-## 💻 Módulo 01
+## 👨‍💻 Módulo 01
 <h4>Trabalho prático</h4>
 <br>
 <p><img src="http://g.recordit.co/386EoWySp4.gif" alt="Recordit GIF" style="max-width:100%;"></p>
 <br>
-<p>RGB Picker</p>
-<br>
+<p>Foi desenvolvido um color picker, onde a cada interação com os input representasse um aspecto RGB, exibindo na tela a cor que está sendo formada. Projeto criado utilizando somente HTML/CSS + Javascript puro e muita manipulação da DOM</p>
 
-  <hr style="width:50%;">
-  
+<hr style="width:30%;">  
 <h4>Desafio</h4>
 <br>
 <p><img src="http://g.recordit.co/Ma04N39MRS.gif" alt="Recordit GIF" style="max-width:100%;"></p>
 <br>
-<p>User API</p>
-<br>
+<p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e varios metodos de manipulação de arrays trazidos pelo ES6. Também me esforçei em entregar algo responsivo.</p>
 
-<hr>
+<hr style="width:30%;">
 
 Feito com ♥ por mim. 

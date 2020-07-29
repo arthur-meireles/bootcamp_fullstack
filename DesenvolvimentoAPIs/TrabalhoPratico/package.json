@@ -1,0 +1,11 @@
+{
+  "name": "cidades_e_estado",
+  "version": "1.0.0",
+  "description": "Trabalho Pratico Modulo 2 bootcamp fullstack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arthur Meireles",
+  "license": "MIT"
+}

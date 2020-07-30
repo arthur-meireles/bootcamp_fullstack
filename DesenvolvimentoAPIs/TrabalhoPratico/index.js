@@ -6,7 +6,7 @@ import { promises as fs } from 'fs';
 
 let estados = null;
 let cidades = null;
-let pais = null;
+
 let path = './jsons/';
 
 start();
@@ -16,8 +16,7 @@ async function start() {
 		estados = JSON.parse(await fs.readFile('estados.json'));
 		cidades = JSON.parse(await fs.readFile('cidades.json'));
 		cidadesPorEstado();
-		quantidadeDeCidades('GO');
-		pais();
+		quantidadeDeCidades('DF');
 	} catch (err) {
 		console.log(err);
 	}
@@ -32,11 +31,31 @@ async function cidadesPorEstado() {
 		city = JSON.stringify(city);
 		await fs.writeFile(`${path}${estado.Sigla}.json`, city);
 	}
+	biggestStates();
 }
 
 // [02] Recebe UF e retorna a quantidade de cidades
 async function quantidadeDeCidades(uf) {
 	const quantity = JSON.parse(await fs.readFile(`${path}${uf}.json`)).length;
-	console.log(`Existe(m) ${quantity} cidade(s) no estado ${uf}`);
 	return quantity;
+}
+
+async function biggestStates() {
+	let statesWithCitiesNumber = [];
+
+	try {
+		let statesList = await estados;
+		const temp = Promise.all(
+			statesList
+				.map(async state => {
+					return {
+						uf: state.Sigla,
+						total: await quantidadeDeCidades(`${state.Sigla}`),
+					};
+				})
+		);
+		
+	} catch (err) {
+		console.log(err);
+	}
 }

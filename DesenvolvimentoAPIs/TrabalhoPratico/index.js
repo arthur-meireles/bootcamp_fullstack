@@ -1,4 +1,5 @@
 import { promises as fs } from 'fs';
+import _ from 'lodash';
 
 /*
 		ESTADO DA APLICACAO
@@ -13,8 +14,8 @@ start();
 
 async function start() {
 	try {
-		estados = JSON.parse(await fs.readFile('estados.json'));
-		cidades = JSON.parse(await fs.readFile('cidades.json'));
+		estados = JSON.parse(await fs.readFile('estados.json', 'utf-8'));
+		cidades = JSON.parse(await fs.readFile('cidades.json', 'utf-8'));
 		cidadesPorEstado();
 		quantidadeDeCidades('DF');
 	} catch (err) {
@@ -41,20 +42,22 @@ async function quantidadeDeCidades(uf) {
 }
 
 async function biggestStates() {
-	let statesWithCitiesNumber = [];
-
 	try {
-		let statesList = await estados;
-		const temp = Promise.all(
-			statesList
+		let statesWithCitiesNumber = [];
+		statesWithCitiesNumber = Promise.all(
+			estados
 				.map(async state => {
 					return {
 						uf: state.Sigla,
 						total: await quantidadeDeCidades(`${state.Sigla}`),
 					};
 				})
+				.sort(),
 		);
-		
+		var sorted = _.sortBy(await statesWithCitiesNumber, 'total').slice(22);
+
+		console.log(await sorted);
+		//await fs.writeFile('states.json', JSON.stringify( await sorted));
 	} catch (err) {
 		console.log(err);
 	}

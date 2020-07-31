@@ -11,6 +11,7 @@ let citiesByUF = [];
 let bigStates = [];
 let smallStates = [];
 let largestCitieName = [];
+let smallestCitieNames = [];
 
 let path = './jsons/';
 
@@ -97,32 +98,66 @@ async function biggestAndSmallestStates() {
 // [05 -06] maiores e menores nomes de cidades
 async function biggestAndSmallestCitieNames() {
 	try {
-		let all = [];
-		//CAMINHA UFS
-		for (let uf of citiesByUF) {
-			let cities = uf.cities;
+		//biggest();
+		smallest();
 
-			let largestCityOFState = [];
+		function biggest() {
+			//CAMINHA UFS
+			for (let uf of citiesByUF) {
+				let cities = uf.cities;
 
-			let maiorCidade = '';
-			//CAMINHA CIDADES DA UF ACIMA
-			for (let city of cities) {
-				let cidadeAtual = city.Nome;
-				if (cidadeAtual.length > maiorCidade.length) {
-					maiorCidade = city.Nome;
-					//prettier-ignore
+				let largestCityOFState = [];
+
+				let maiorCidade = '';
+				//CAMINHA CIDADES DA UF ACIMA
+				for (let city of cities) {
+					let cidadeAtual = city.Nome;
+					if (cidadeAtual.length > maiorCidade.length) {
+						maiorCidade = city.Nome;
+						//prettier-ignore
+					}
 				}
+				largestCityOFState = [
+					{
+						uf: uf.uf,
+						city: maiorCidade,
+					},
+				];
+				largestCitieName = [...largestCitieName, ...largestCityOFState];
 			}
-			largestCityOFState = [
-				{
-					uf: uf.uf,
-					city: maiorCidade,
-				},
-			];
-			all = [...all, ...largestCityOFState];
-		}
 
-		console.log(all);
+			console.log(largestCitieName);
+		}
+		function smallest() {
+			//CAMINHA UF (DF)
+			for (let uf of citiesByUF) {
+				let smallestCityOFState = [];
+				let temp = [];
+				
+				//Caminha cidade (Brasilia)
+				for(let city of uf.cities) {
+					//Cria array so com nomes
+					temp.push(city.Nome);
+				}
+
+				//reduce no array de nomes
+				smallestCityOFState = temp.reduce((acumulador, valorAtual) => {
+					 (a, b) => a.length <= b.length ? a : b
+				
+				});
+
+				console.log(smallestCityOFState);
+				// smallestCityOFState = [
+				// 	{
+				// 		uf: uf.uf,
+				// 		city: menorCidade,
+				// 	},
+				// ];
+				//smallestCitieNames = [...smallestCitieName, ...smallestCityOFState];
+			}
+
+			//console.log(smallestCitieNames);
+		}
 	} catch (err) {
 		console.log(err);
 	}

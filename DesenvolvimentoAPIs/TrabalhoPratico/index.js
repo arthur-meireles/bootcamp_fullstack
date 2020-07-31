@@ -1,6 +1,5 @@
 import { promises as fs } from 'fs';
 import _ from 'lodash';
-import { ALL } from 'dns';
 
 /*
 		ESTADO DA APLICACAO
@@ -11,7 +10,7 @@ let cidades = [];
 let citiesByUF = [];
 let bigStates = [];
 let smallStates = [];
-let statesWithCities = [];
+let largestCitieName = [];
 
 let path = './jsons/';
 
@@ -30,28 +29,26 @@ async function start() {
 
 // [01] Cria um json para cada estado com o titulo da UF e guarda suas cidades dentro
 async function cidadesPorEstado() {
-	let all = [];
 	for (let estado of estados) {
 		let citiesOfUF = cidades
 			.filter(cidade => {
 				return cidade.Estado === estado.ID;
 			})
 			.sort();
-
-			let state = [{[estado.Sigla]: citiesOfUF}];
-
-		console.log(state[0]);
-		// temp = state.map((uf)=>({...uf,cidades:citiesOfUF}));
-		// all = all + state;
-		// console.log(state);
-		//cities = JSON.stringify(cities);
-		all = [...all, state];
-		// await fs.writeFile(`${path}${estado.Sigla}.json`, cities);
+		//prettier-ignore
+		citiesByUF = [...citiesByUF, {
+			uf: estado.Sigla,
+			cities: [...citiesOfUF],
+		}]
+		await fs.writeFile(
+			`${path}${estado.Sigla}.json`,
+			JSON.stringify(citiesOfUF),
+		);
+		// await fs.writeFile(
+		// 	`${path}ALL.json`,
+		// 	JSON.stringify(citiesByUF),
+		// );
 	}
-	// console.log(all[0]);
-	await fs.writeFile(`${path}Tmp.json`, JSON.stringify(all));
-	//console.log(await all);
-	// await fs.writeFile(`${path}All.json`, JSON.stringify(citiesByUF));
 	biggestAndSmallestStates();
 	biggestAndSmallestCitieNames();
 }
@@ -100,12 +97,32 @@ async function biggestAndSmallestStates() {
 // [05 -06] maiores e menores nomes de cidades
 async function biggestAndSmallestCitieNames() {
 	try {
-		let i = 0;
-		let testArray = [];
-		//console.log(await citiesByUF);
-		for (let state of estados) {
-			i++;
+		let all = [];
+		//CAMINHA UFS
+		for (let uf of citiesByUF) {
+			let cities = uf.cities;
+
+			let largestCityOFState = [];
+
+			let maiorCidade = '';
+			//CAMINHA CIDADES DA UF ACIMA
+			for (let city of cities) {
+				let cidadeAtual = city.Nome;
+				if (cidadeAtual.length > maiorCidade.length) {
+					maiorCidade = city.Nome;
+					//prettier-ignore
+				}
+			}
+			largestCityOFState = [
+				{
+					uf: uf.uf,
+					city: maiorCidade,
+				},
+			];
+			all = [...all, ...largestCityOFState];
 		}
+
+		console.log(all);
 	} catch (err) {
 		console.log(err);
 	}

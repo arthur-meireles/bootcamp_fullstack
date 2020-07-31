@@ -5,8 +5,10 @@ import _ from 'lodash';
 		ESTADO DA APLICACAO
 */
 
-let estados = null;
-let cidades = null;
+let estados = [];          //Todos os estados
+let cidades = [];	      //todas as cidades
+let bigStates = [];	     //5 maiores estados
+let smallStates = [];   //5 menores estados
 
 let path = './jsons/';
 
@@ -41,10 +43,10 @@ async function quantidadeDeCidades(uf) {
 	return quantity;
 }
 
+// [03 -04] Cria um map de uf + total de cidades e manipula esse array
 async function biggestStates() {
 	try {
-		let statesWithCitiesNumber = [];
-		statesWithCitiesNumber = Promise.all(
+		let statesWithCitiesNumber = Promise.all(
 			estados
 				.map(async state => {
 					return {
@@ -54,10 +56,25 @@ async function biggestStates() {
 				})
 				.sort(),
 		);
-		var sorted = _.sortBy(await statesWithCitiesNumber, 'total').slice(22);
+		
+		//Usando lodash para orgenar pelo total
+		let biggest = _.sortBy(await statesWithCitiesNumber, 'total').slice(22);
+		//prettier-ignore
+		let smallest = _.sortBy(await statesWithCitiesNumber, 'total').slice(0,5);
 
-		console.log(await sorted);
-		//await fs.writeFile('states.json', JSON.stringify( await sorted));
+		//ordenando decrescentemente
+		biggest.sort((a,b) => b.total - a.total);
+		smallest.sort((a,b) => b.total - a.total);
+
+		for await (let state of biggest){
+			bigStates.push(`${state.uf} - ${state.total}`);
+		}
+
+		for await (let state of smallest){
+			smallStates.push(`${state.uf} - ${state.total}`);
+		}
+
+
 	} catch (err) {
 		console.log(err);
 	}

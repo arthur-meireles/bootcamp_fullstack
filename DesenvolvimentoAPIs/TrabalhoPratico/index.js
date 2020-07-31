@@ -1,14 +1,17 @@
 import { promises as fs } from 'fs';
 import _ from 'lodash';
+import { ALL } from 'dns';
 
 /*
 		ESTADO DA APLICACAO
 */
 
-let estados = [];          //Todos os estados
-let cidades = [];	      //todas as cidades
-let bigStates = [];	     //5 maiores estados
-let smallStates = [];   //5 menores estados
+let estados = [];
+let cidades = [];
+let citiesByUF = [];
+let bigStates = [];
+let smallStates = [];
+let statesWithCities = [];
 
 let path = './jsons/';
 
@@ -27,14 +30,30 @@ async function start() {
 
 // [01] Cria um json para cada estado com o titulo da UF e guarda suas cidades dentro
 async function cidadesPorEstado() {
-	for (var estado of estados) {
-		let city = cidades.filter(cidade => {
-			return cidade.Estado === estado.ID;
-		});
-		city = JSON.stringify(city);
-		await fs.writeFile(`${path}${estado.Sigla}.json`, city);
+	let all = [];
+	for (let estado of estados) {
+		let citiesOfUF = cidades
+			.filter(cidade => {
+				return cidade.Estado === estado.ID;
+			})
+			.sort();
+
+			let state = [{[estado.Sigla]: citiesOfUF}];
+
+		console.log(state[0]);
+		// temp = state.map((uf)=>({...uf,cidades:citiesOfUF}));
+		// all = all + state;
+		// console.log(state);
+		//cities = JSON.stringify(cities);
+		all = [...all, state];
+		// await fs.writeFile(`${path}${estado.Sigla}.json`, cities);
 	}
-	biggestStates();
+	// console.log(all[0]);
+	await fs.writeFile(`${path}Tmp.json`, JSON.stringify(all));
+	//console.log(await all);
+	// await fs.writeFile(`${path}All.json`, JSON.stringify(citiesByUF));
+	biggestAndSmallestStates();
+	biggestAndSmallestCitieNames();
 }
 
 // [02] Recebe UF e retorna a quantidade de cidades
@@ -44,7 +63,7 @@ async function quantidadeDeCidades(uf) {
 }
 
 // [03 -04] Cria um map de uf + total de cidades e manipula esse array
-async function biggestStates() {
+async function biggestAndSmallestStates() {
 	try {
 		let statesWithCitiesNumber = Promise.all(
 			estados
@@ -56,25 +75,37 @@ async function biggestStates() {
 				})
 				.sort(),
 		);
-		
+
 		//Usando lodash para orgenar pelo total
 		let biggest = _.sortBy(await statesWithCitiesNumber, 'total').slice(22);
 		//prettier-ignore
 		let smallest = _.sortBy(await statesWithCitiesNumber, 'total').slice(0,5);
 
 		//ordenando decrescentemente
-		biggest.sort((a,b) => b.total - a.total);
-		smallest.sort((a,b) => b.total - a.total);
+		biggest.sort((a, b) => b.total - a.total);
+		smallest.sort((a, b) => b.total - a.total);
 
-		for await (let state of biggest){
+		for await (let state of biggest) {
 			bigStates.push(`${state.uf} - ${state.total}`);
 		}
 
-		for await (let state of smallest){
+		for await (let state of smallest) {
 			smallStates.push(`${state.uf} - ${state.total}`);
 		}
+	} catch (err) {
+		console.log(err);
+	}
+}
 
-
+// [05 -06] maiores e menores nomes de cidades
+async function biggestAndSmallestCitieNames() {
+	try {
+		let i = 0;
+		let testArray = [];
+		//console.log(await citiesByUF);
+		for (let state of estados) {
+			i++;
+		}
 	} catch (err) {
 		console.log(err);
 	}

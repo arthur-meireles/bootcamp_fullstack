@@ -5,13 +5,15 @@ import _ from 'lodash';
 		ESTADO DA APLICACAO
 */
 
-let estados = [];
-let cidades = [];
-let citiesByUF = [];
-let bigStates = [];
-let smallStates = [];
-let largestCitieName = [];
-let smallestCitieNames = [];
+let estados = []; //todos estados
+let cidades = []; //todas cidades
+let citiesByUF = []; //cidades agrupadas por uf
+let bigStates = []; // 5 estados com maior numero de cidades
+let smallStates = []; // 5 estados com menor numero de cidades
+let biggestByUf = []; //Maiores nomes de cidade por uf
+let smallestByUf = []; //Menores nomes de cidade por uf
+let biggestOfCountry = []; //Maior cidade do país
+let smallestOfCountry = []; //Menor cidade do país
 
 let path = './jsons/';
 
@@ -50,8 +52,8 @@ async function cidadesPorEstado() {
 		// 	JSON.stringify(citiesByUF),
 		// );
 	}
-	biggestAndSmallestStates();
-	biggestAndSmallestCitieNames();
+	compareStateSize();
+	compareNameSizes();
 }
 
 // [02] Recebe UF e retorna a quantidade de cidades
@@ -61,7 +63,7 @@ async function quantidadeDeCidades(uf) {
 }
 
 // [03 -04] Cria um map de uf + total de cidades e manipula esse array
-async function biggestAndSmallestStates() {
+async function compareStateSize() {
 	try {
 		let statesWithCitiesNumber = Promise.all(
 			estados
@@ -95,13 +97,15 @@ async function biggestAndSmallestStates() {
 	}
 }
 
-// [05 -06] maiores e menores nomes de cidades
-async function biggestAndSmallestCitieNames() {
+// [05 -08] maiores e menores nomes de cidades
+async function compareNameSizes() {
 	try {
-		//biggest();
-		smallest();
+		biggestByState();
+		smallestByState();
+		biggestByCountry();
+		smallestByCountry();
 
-		function biggest() {
+		function biggestByState() {
 			//CAMINHA UFS
 			for (let uf of citiesByUF) {
 				let cities = uf.cities;
@@ -123,40 +127,53 @@ async function biggestAndSmallestCitieNames() {
 						city: maiorCidade,
 					},
 				];
-				largestCitieName = [...largestCitieName, ...largestCityOFState];
+				biggestByUf = [...biggestByUf, ...largestCityOFState];
 			}
 
-			console.log(largestCitieName);
+			//console.log(biggestByUf);
 		}
-		function smallest() {
-			//CAMINHA UF (DF)
+		function smallestByState() {
+			//CAMINHA UF (ex: DF)
 			for (let uf of citiesByUF) {
 				let smallestCityOFState = [];
-				let temp = [];
-				
-				//Caminha cidade (Brasilia)
-				for(let city of uf.cities) {
+				let simpleArray = [];
+
+				//Caminha cidade (ex: Brasilia)
+				for (let city of uf.cities) {
 					//Cria array so com nomes
-					temp.push(city.Nome);
+					simpleArray.push(city.Nome);
 				}
 
 				//reduce no array de nomes
-				smallestCityOFState = temp.reduce((acumulador, valorAtual) => {
-					 (a, b) => a.length <= b.length ? a : b
-				
-				});
+				const shorter = (left, right) =>
+					left.length <= right.length ? left : right;
+				let menorCidade = simpleArray.reduce(shorter);
 
-				console.log(smallestCityOFState);
-				// smallestCityOFState = [
-				// 	{
-				// 		uf: uf.uf,
-				// 		city: menorCidade,
-				// 	},
-				// ];
-				//smallestCitieNames = [...smallestCitieName, ...smallestCityOFState];
+				//Monta Objeto por estado
+				smallestCityOFState = [
+					{
+						uf: uf.uf,
+						city: menorCidade,
+					},
+				];
+
+				smallestByUf = [...smallestByUf, ...smallestCityOFState];
 			}
+			//console.log(smallestByUf);
+		}
+		function biggestByCountry() {
+			biggestOfCountry = biggestByUf.reduce(function (a, b) {
+				return a.city.length > b.city.length ? a : b;
+			});
+			//console.log(biggestOfCountry);
+		}
+		function smallestByCountry() {
 
-			//console.log(smallestCitieNames);
+			const shorter = (left, right) =>
+			left.city.length <= right.city.length ? left : right;
+			smallestOfCountry = smallestByUf.reduce(shorter);
+
+			console.log(smallestOfCountry);
 		}
 	} catch (err) {
 		console.log(err);

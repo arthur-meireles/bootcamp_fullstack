@@ -23,8 +23,8 @@ async function start() {
 	try {
 		estados = JSON.parse(await fs.readFile('estados.json', 'utf-8'));
 		cidades = JSON.parse(await fs.readFile('cidades.json', 'utf-8'));
+		console.log('==========  [JSONs CRIADOS] ==========');
 		cidadesPorEstado();
-		quantidadeDeCidades('DF');
 	} catch (err) {
 		console.log(err);
 	}
@@ -47,13 +47,12 @@ async function cidadesPorEstado() {
 			`${path}${estado.Sigla}.json`,
 			JSON.stringify(citiesOfUF),
 		);
-		// await fs.writeFile(
-		// 	`${path}ALL.json`,
-		// 	JSON.stringify(citiesByUF),
-		// );
 	}
+	console.log('==========  [QTD CIDADE DO ESTADO] ==========');
+	let qtd = await quantidadeDeCidades('DF');
+	console.log( `Numero de cidades da UF: ${await qtd}`);
 	compareStateSize();
-	compareNameSizes();
+	
 }
 
 // [02] Recebe UF e retorna a quantidade de cidades
@@ -92,6 +91,11 @@ async function compareStateSize() {
 		for await (let state of smallest) {
 			smallStates.push(`${state.uf} - ${state.total}`);
 		}
+		console.log('==========  [5 ESTADOS COM MAIS CIDADES] ==========');
+		console.log(await bigStates);
+		console.log('==========  [5 ESTADOS COM MENOS CIDADES] ==========');
+		console.log(await smallStates);
+		compareNameSizes();
 	} catch (err) {
 		console.log(err);
 	}
@@ -129,8 +133,8 @@ async function compareNameSizes() {
 				];
 				biggestByUf = [...biggestByUf, ...largestCityOFState];
 			}
-
-			//console.log(biggestByUf);
+			console.log('==========  [MAIOR NOME CIDADE POR UF] ==========');
+			console.log(biggestByUf);
 		}
 		function smallestByState() {
 			//CAMINHA UF (ex: DF)
@@ -159,20 +163,22 @@ async function compareNameSizes() {
 
 				smallestByUf = [...smallestByUf, ...smallestCityOFState];
 			}
-			//console.log(smallestByUf);
+			console.log('==========  [MENOR NOME CIDADE POR UF] ==========');
+			console.log(smallestByUf);
 		}
 		function biggestByCountry() {
 			biggestOfCountry = biggestByUf.reduce(function (a, b) {
 				return a.city.length > b.city.length ? a : b;
 			});
-			//console.log(biggestOfCountry);
+			console.log('==========  [MAIOR CIDADE DO PAÍS] ==========');
+			console.log(biggestOfCountry);
 		}
 		function smallestByCountry() {
 
 			const shorter = (left, right) =>
 			left.city.length <= right.city.length ? left : right;
 			smallestOfCountry = smallestByUf.reduce(shorter);
-
+			console.log('==========  [MENOR CIDADE DO PAÍS] ==========');
 			console.log(smallestOfCountry);
 		}
 	} catch (err) {

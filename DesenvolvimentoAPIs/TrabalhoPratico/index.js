@@ -49,7 +49,7 @@ async function cidadesPorEstado() {
 		);
 	}
 	console.log('==========  [QTD CIDADE DO ESTADO] ==========');
-	let qtd = await quantidadeDeCidades('DF');
+	let qtd = await quantidadeDeCidades('GO');
 	console.log( `Numero de cidades da UF: ${await qtd}`);
 	compareStateSize();
 	

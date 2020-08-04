@@ -2,11 +2,18 @@ import express from 'express';
 
 const app = express();
 
-app.get('/', (req, res) => {
-	let a = 2;
-	let b = 4;
-	let sum = a + b;
-	res.send('hello b');
+app.all('/testAll', (req, res) => {
+	res.send(req.method);
+});
+
+//Aceita /teste ou /test
+app.get('/test?', (_,res)=>{
+    res.send('a')
+});
+
+//Aceita /buzz ou /buzzzzzzzzzz
+app.get('/buzz+', (_,res)=>{
+    res.send('Foi')
 });
 
 app.listen(3000, () => {

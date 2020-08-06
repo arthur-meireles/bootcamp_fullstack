@@ -67,17 +67,28 @@ app.get(
 /*
         NEXT C/ ARRAY
 */
-const callback1 = (req,res, next) =>{
-    console.log('callback 1');
-    next();
+const callback1 = (req, res, next) => {
+	console.log('callback 1');
+	next();
 };
 
-const callback2 = (req,res, next) =>{
-    console.log('callback 2');
-    res.end();
-}
+const callback2 = (req, res, next) => {
+	console.log('callback 2');
+	res.end();
+};
 
-app.get('/multipleHandlersArray', [callback1, callback2])
+app.get('/multipleHandlersArray', [callback1, callback2]);
+
+/*
+        ROUTE 
+*/
+app.route('/route')
+	.get((req, res) => {
+		res.send('get');
+	})
+	.post((req, res) => {
+		res.send('post');
+	});
 
 app.listen(3000, () => {
 	console.warn('API Started on port 3000...');

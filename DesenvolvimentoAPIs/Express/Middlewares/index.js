@@ -1,7 +1,9 @@
 import express from 'express';
+import carrosRouter from './carrosRouter.js';
 
 const app = express();
 app.use(express.json());
+app.use('/carros', carrosRouter);
 
 app.use((req, res, next)=>{
     console.log(new Date());

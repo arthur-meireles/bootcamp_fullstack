@@ -21,7 +21,7 @@ global.logger = winston.createLogger({
     level: 'silly',
     transports: [
         new (winston.transports.Console)(), 
-        new (winston.transports.File)({ filename= "my-bank-log.log"})
+        new (winston.transports.File)({ filename: "my-bank-log.log"})
     ],
     format: combine(
         label({ label: 'my-bank-api'}), 
@@ -30,11 +30,12 @@ global.logger = winston.createLogger({
     )
 });
 
+
 app.listen(3000, async () => {
 	try {
 		await readFile(`${path}`);
 		logger.info('File exists');
-		console.log('Server runing on port 3000...');
+		logger.info('Server runing on port 3000...');
 	} catch (err) {
 		const initialJson = {
 			nextId: 1,
@@ -42,9 +43,9 @@ app.listen(3000, async () => {
 		};
 		await writeFile(`${path}`, JSON.stringify(initialJson))
 			.then(() => {
-				console.log('File created');
-				console.log('Server runing on port 3000...');
+				logger.info('File created');
+				logger.info('Server runing on port 3000...');
 			})
-			.catch(err => console.log(err));
+			.catch(err => logger.error(err));
 	}
 });

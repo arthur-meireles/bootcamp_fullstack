@@ -1,12 +1,14 @@
 import express from 'express';
 import { promises as fs } from 'fs';
+import cors from 'cors';
 
 const path = './jsons';
 const router = express.Router();
 const { readFile, writeFile } = fs;
 
+
 // post account
-router.post('/', async (req, res, next) => {
+router.post('/', cors(),async (req, res, next) => {
 	try {
 		let account = req.body;
 		//Tratando vazio

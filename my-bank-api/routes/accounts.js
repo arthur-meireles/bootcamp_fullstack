@@ -59,4 +59,19 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
+//update account
+router.put('/', async (req, res) => {
+	try {
+		let body = req.body;
+		const data = JSON.parse(await readFile(`${global.path}`));
+		const index = data.accounts.findIndex(account => account.id == body.id);
+
+		data.accounts[index] = body;
+		await writeFile(global.path, JSON.stringify(data));
+		res.send({ message: 'Update sucess!' });
+	} catch (err) {
+		res.status(400).send({ error: err.message });
+	}
+});
+
 export default router;

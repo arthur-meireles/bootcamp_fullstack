@@ -1,10 +1,20 @@
 {
-  "nextId": 2,
+  "nextId": 4,
   "accounts": [
     {
       "id": 1,
-      "name": "Reck Jack Chen",
-      "balance": 100
+      "name": "Agualino COca Latao da silva",
+      "balance": 458
+    },
+    {
+      "id": 2,
+      "name": "Joao Rack CheCK Chan",
+      "balance": 5448
+    },
+    {
+      "id": 3,
+      "name": "Eduardo Jhonson e Johnson",
+      "balance": 6512
     }
   ]
 }

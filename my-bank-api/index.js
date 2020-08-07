@@ -3,6 +3,8 @@ import { promises as fs } from 'fs';
 import accountsRouter from './routes/accounts.js';
 import winston from 'winston';
 import cors from 'cors';
+import swaggerUI from 'swagger-ui-express';
+import {swagger} from './swagger.js'
 
 global.path='./jsons/accounts.json'
 
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use('/account', accountsRouter);
 app.use(express.static('public'));
 app.use(cors()); //Permite o acesso a API a partir de qlq dominio
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swagger));
 
 
 //Logger Configure

@@ -1,6 +1,5 @@
 import express from 'express';
 import { promises as fs } from 'fs';
-import cors from 'cors';
 
 const path = './jsons';
 const router = express.Router();
@@ -8,7 +7,7 @@ const { readFile, writeFile } = fs;
 
 
 // post account
-router.post('/', cors(),async (req, res, next) => {
+router.post('/',async (req, res, next) => {
 	try {
 		let account = req.body;
 		//Tratando vazio
@@ -27,7 +26,7 @@ router.post('/', cors(),async (req, res, next) => {
 		data.accounts.push(account);
 
 		await writeFile(`${global.path}`, JSON.stringify(data, null, 2));
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send(account);
 	} catch (err) {
 		next(err);
@@ -39,7 +38,7 @@ router.get('/', async (req, res, next) => {
 	try {
 		const data = JSON.parse(await readFile(`${global.path}`));
 		delete data.nextId;
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send(data);
 	} catch (err) {
 		next(err);
@@ -52,7 +51,7 @@ router.get('/:id', async (req, res, next) => {
 		const data = JSON.parse(await readFile(`${global.path}`));
 		const id = req.params.id;
 		let account = data.accounts.find(account => account.id == id);
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send(account);
 	} catch (err) {
 		next(err);
@@ -67,7 +66,7 @@ router.delete('/:id', async (req, res, next) => {
 			account => account.id != req.params.id,
 		);
 		await writeFile(`${global.path}`, JSON.stringify(data, null, 2));
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send({ message: 'Deleted with sucess!' });
 	} catch (err) {
 		next(err);
@@ -93,7 +92,7 @@ router.put('/', async (req, res, next) => {
 		data.accounts[index].balance = body.balance;
 
 		await writeFile(global.path, JSON.stringify(data, null, 2));
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send({ message: 'Update sucess!' });
 	} catch (err) {
 		next(err);
@@ -112,7 +111,7 @@ router.patch('/updateBalance', async (req, res, next) => {
 		}
 		data.accounts[index].balance = body.balance;
 		await writeFile(global.path, JSON.stringify(data, null, 2));
-		global.logger.info(`${req.method} ${req.baseUrl} - Sucess ✓`);
+		global.logger.info(`${req.method} ${req.baseUrl} - Success ✓`);
 		res.send({ message: 'Update sucess!' });
 	} catch (err) {
 		next(err);

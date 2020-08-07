@@ -6,7 +6,7 @@ const router = express.Router();
 const { readFile, writeFile } = fs;
 
 // post account
-router.post('/', async (req, res) => {
+router.post('/', async (req, res,next) => {
 	try {
 		let account = req.body;
 		const data = JSON.parse(await readFile(`${global.path}`));
@@ -18,35 +18,35 @@ router.post('/', async (req, res) => {
 
 		res.send(account);
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
 
 // get all accounts
-router.get('/', async (req, res) => {
+router.get('/', async (req, res,next) => {
 	try {
 		const data = JSON.parse(await readFile(`${global.path}`));
 		delete data.nextId;
 		res.send(data);
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
 
 //get account by id
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res,next) => {
 	try {
 		const data = JSON.parse(await readFile(`${global.path}`));
 		const id = req.params.id;
 		let account = data.accounts.find(account => account.id == id);
 		res.send(account);
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
 
 //delete account
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res,next) => {
 	try {
 		const data = JSON.parse(await readFile(`${global.path}`));
 		data.accounts = data.accounts.filter(
@@ -55,12 +55,12 @@ router.delete('/:id', async (req, res) => {
 		await writeFile(`${global.path}`, JSON.stringify(data, null, 2));
 		res.send({ message: 'deleted with sucess!' });
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
 
 //update account
-router.put('/', async (req, res) => {
+router.put('/', async (req, res,next) => {
 	try {
 		let body = req.body;
 		const data = JSON.parse(await readFile(`${global.path}`));
@@ -70,12 +70,12 @@ router.put('/', async (req, res) => {
 		await writeFile(global.path, JSON.stringify(data));
 		res.send({ message: 'Update sucess!' });
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
 
 //update balance
-router.patch('/updateBalance', async (req, res) => {
+router.patch('/updateBalance', async (req, res,next) => {
     try {
 		let body = req.body;
 		const data = JSON.parse(await readFile(`${global.path}`));
@@ -85,8 +85,14 @@ router.patch('/updateBalance', async (req, res) => {
 		await writeFile(global.path, JSON.stringify(data));
 		res.send({ message: 'Update sucess!' });
 	} catch (err) {
-		res.status(400).send({ error: err.message });
+		next(err);
 	}
 });
+
+//tratando erros
+router.use((err,req,res,next)=>{
+    console.log(err);
+    res.status(400).send({ error: err.message });
+})
 
 export default router;

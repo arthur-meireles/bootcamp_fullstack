@@ -1,20 +1,10 @@
 {
-  "nextId": 4,
+  "nextId": 2,
   "accounts": [
     {
       "id": 1,
-      "name": "Josue Costa",
-      "balance": 2340
-    },
-    {
-      "id": 2,
-      "name": "Arthur Meireles",
-      "balance": 600
-    },
-    {
-      "id": 3,
-      "name": "Eduardo Johnson",
-      "balance": 900
+      "name": "Reck Jack Chen",
+      "balance": 100
     }
   ]
 }

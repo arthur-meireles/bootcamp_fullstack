@@ -45,4 +45,18 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+//delete account
+router.delete('/:id', async (req, res) => {
+	try {
+		const data = JSON.parse(await readFile(`${global.path}`));
+		data.accounts = data.accounts.filter(
+			account => account.id != req.params.id,
+		);
+		await writeFile(`${global.path}`, JSON.stringify(data, null, 2));
+		res.send({ message: 'deleted with sucess!' });
+	} catch (err) {
+		res.status(400).send({ error: err.message });
+	}
+});
+
 export default router;

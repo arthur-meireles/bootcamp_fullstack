@@ -2,6 +2,7 @@ import express from 'express';
 import { promises as fs } from 'fs';
 import accountsRouter from './routes/accounts.js';
 import winston from 'winston';
+import cors from 'cors';
 
 global.path='./jsons/accounts.json'
 
@@ -10,6 +11,8 @@ const app = express();
 
 app.use(express.json());
 app.use('/account', accountsRouter);
+app.use(express.static('public'));
+app.use(cors()); //Permite o acesso a API a partir de qlq dominio
 
 
 //Logger Configure

@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
 		data.grades.push(body);
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade Created ✓ | id: ${body.id}`,
+			`${req.method} ${req.originalUrl} - Grade Created ✓ | id: ${body.id}`,
 		);
 		res.send(body);
 	} catch (err) {
@@ -57,7 +57,7 @@ router.put('/', async (req, res, next) => {
 
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade Updated ✓ | id: ${id}`,
+			`${req.method} ${req.originalUrl} - Grade Updated ✓ | id: ${id}`,
 		);
 		res.send({ message: `Grade with id: ${id}, was successfully changed!` });
 	} catch (err) {
@@ -84,7 +84,7 @@ router.delete('/delete', async (req, res, next) => {
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade Deleted ✓ | id: ${id}`,
+			`${req.method} ${req.originalUrl} - Grade Deleted ✓ | id: ${id}`,
 		);
 		res.send({ message: `Grade with id: ${id}, was successfully deleted!` });
 	} catch (err) {
@@ -107,7 +107,7 @@ router.get('/search', async (req, res, next) => {
 		}
 
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade GET ✓ | id: ${id}`,
+			`${req.method} ${req.originalUrl} - Grade GET ✓ | id: ${id}`,
 		);
 		res.send(data.grades[index]);
 	} catch (err) {
@@ -121,18 +121,16 @@ router.get('/total', async (req, res, next) => {
 		const { student, subject } = req.body;
 
 		let data = JSON.parse(await readFile(`${global.path}`));
-
 		data = data.grades.filter(grade => grade.student == student);
-
 		data = data.filter(grade => grade.subject == subject);
-
 		data = data.map(data => {
 			return data.value;
 		});
+
 		let total = data.reduce((accum, curr) => accum + curr);
 
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Calculating grades Student: ${student} | Subject: ${subject} | Total: ${total} `,
+			`${req.method} ${req.originalUrl} - Calculating grades [Student: ${student} | Subject: ${subject} | Total: ${total}]`,
 		);
 		res.json({ student: student, subject: subject, total: total });
 	} catch (err) {

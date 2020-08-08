@@ -51,10 +51,10 @@ router.put('/', async (req, res, next) => {
 
 		data.grades[index].student = student;
 		data.grades[index].subject = subject;
-	    data.grades[index].type = type;
+		data.grades[index].type = type;
 		data.grades[index].value = value;
-        data.grades[index].timestamp = new Date();
-        
+		data.grades[index].timestamp = new Date();
+
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 		global.logger.info(
 			`${req.method} ${req.baseUrl} - Grade Updated ✓ | id: ${id}`,
@@ -66,9 +66,9 @@ router.put('/', async (req, res, next) => {
 });
 
 /* ---- Delete grade ---- */
-router.delete('/:id', async (req, res, next) => {
+router.delete('/delete', async (req, res, next) => {
 	try {
-		let id = req.params.id;
+		let id = req.query.id;
 		let data = JSON.parse(await readFile(`${global.path}`));
 		const index = data.grades.findIndex(grade => grade.id == id);
 
@@ -79,7 +79,7 @@ router.delete('/:id', async (req, res, next) => {
 		//Mantendo estrutura do arquivo
 		data = {
 			nextId: data.nextId,
-			grades: data.grades.filter(grade => grade.id != id)
+			grades: data.grades.filter(grade => grade.id != id),
 		};
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 
@@ -93,15 +93,15 @@ router.delete('/:id', async (req, res, next) => {
 });
 
 /* ---- Get grade by id ---- */
-router.get('/:id', async (req, res, next) => {
+router.get('/search', async (req, res, next) => {
 	try {
-        let id = req.params.id;
-        
+		let id = req.query.id;
+
 		let data = JSON.parse(await readFile(`${global.path}`));
-        
+
 		//Tratando id nao encontrado
-        const index = data.grades.findIndex(grade => grade.id == id);
-        console.log(index)
+		const index = data.grades.findIndex(grade => grade.id == id);
+		console.log(index);
 		if (index === -1) {
 			throw new Error('Nothing with this id was found.');
 		}
@@ -123,12 +123,18 @@ router.get('/total', async (req, res, next) => {
 		let data = JSON.parse(await readFile(`${global.path}`));
 
 		data = data.grades.filter(grade => grade.student == student);
-		data = data.grades.filter(grade => grade.subject == subject);
-        let total = data.grades.reduce((acc, grade) => acc.value + grade.value);
+
+		data = data.filter(grade => grade.subject == subject);
+
+		data = data.map(data => {
+			return data.value;
+		});
+		let total = data.reduce((accum, curr) => accum + curr);
+
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade GET ✓ | id: ${id}`,
+			`${req.method} ${req.baseUrl} - Calculating grades Student: ${student} | Subject: ${subject} | Total: ${total} `,
 		);
-		res.send(total);
+		res.json({ student: student, subject: subject, total: total });
 	} catch (err) {
 		next(err);
 	}

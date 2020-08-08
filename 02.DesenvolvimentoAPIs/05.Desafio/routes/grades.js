@@ -50,11 +50,12 @@ router.put('/', async (req, res, next) => {
 		}
 
 		data.grades[index].student = student;
-		(data.grades[index].subject = subject),
-			(data.grades[index].type = type),
-			(data.grades[index].value = value),
-			(data.grades[index].timestamp = new Date()),
-			await writeFile(global.path, JSON.stringify(data, null, 2));
+		data.grades[index].subject = subject;
+	    data.grades[index].type = type;
+		data.grades[index].value = value;
+        data.grades[index].timestamp = new Date();
+        
+		await writeFile(global.path, JSON.stringify(data, null, 2));
 		global.logger.info(
 			`${req.method} ${req.baseUrl} - Grade Updated ✓ | id: ${id}`,
 		);
@@ -75,11 +76,11 @@ router.delete('/:id', async (req, res, next) => {
 		if (index === -1) {
 			throw new Error('Nothing with this id was found.');
 		}
-        //Mantendo estrutura do arquivo
-        data = {
-            "nextId": data.nextId,
-            "grades": [data.grades.filter(grade => grade.id != id)]
-        };
+		//Mantendo estrutura do arquivo
+		data = {
+			nextId: data.nextId,
+			grades: data.grades.filter(grade => grade.id != id)
+		};
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 
 		global.logger.info(
@@ -92,13 +93,15 @@ router.delete('/:id', async (req, res, next) => {
 });
 
 /* ---- Get grade by id ---- */
-router.get('/:id', async (req, res,next) => {
+router.get('/:id', async (req, res, next) => {
 	try {
-		let id = req.params.id;
+        let id = req.params.id;
+        
 		let data = JSON.parse(await readFile(`${global.path}`));
-		
-        //Tratando id nao encontrado
+        
+		//Tratando id nao encontrado
         const index = data.grades.findIndex(grade => grade.id == id);
+        console.log(index)
 		if (index === -1) {
 			throw new Error('Nothing with this id was found.');
 		}
@@ -107,6 +110,25 @@ router.get('/:id', async (req, res,next) => {
 			`${req.method} ${req.baseUrl} - Grade GET ✓ | id: ${id}`,
 		);
 		res.send(data.grades[index]);
+	} catch (err) {
+		next(err);
+	}
+});
+
+/* ---- Get sum grade subject ---- */
+router.get('/total', async (req, res, next) => {
+	try {
+		const { student, subject } = req.body;
+
+		let data = JSON.parse(await readFile(`${global.path}`));
+
+		data = data.grades.filter(grade => grade.student == student);
+		data = data.grades.filter(grade => grade.subject == subject);
+        let total = data.grades.reduce((acc, grade) => acc.value + grade.value);
+		global.logger.info(
+			`${req.method} ${req.baseUrl} - Grade GET ✓ | id: ${id}`,
+		);
+		res.send(total);
 	} catch (err) {
 		next(err);
 	}

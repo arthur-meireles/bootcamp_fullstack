@@ -75,8 +75,11 @@ router.delete('/:id', async (req, res, next) => {
 		if (index === -1) {
 			throw new Error('Nothing with this id was found.');
 		}
-
-		data = data.grades.filter(grade => grade.id != id);
+        //Mantendo estrutura do arquivo
+        data = {
+            "nextId": data.nextId,
+            "grades": [data.grades.filter(grade => grade.id != id)]
+        };
 		await writeFile(global.path, JSON.stringify(data, null, 2));
 
 		global.logger.info(
@@ -93,20 +96,17 @@ router.get('/:id', async (req, res,next) => {
 	try {
 		let id = req.params.id;
 		let data = JSON.parse(await readFile(`${global.path}`));
-		const index = data.grades.findIndex(grade => grade.id == id);
-
-		//Tratando id nao encontrado
+		
+        //Tratando id nao encontrado
+        const index = data.grades.findIndex(grade => grade.id == id);
 		if (index === -1) {
 			throw new Error('Nothing with this id was found.');
 		}
 
-		data = data.grades.filter(grade => grade.id != id);
-		await writeFile(global.path, JSON.stringify(data, null, 2));
-
 		global.logger.info(
-			`${req.method} ${req.baseUrl} - Grade Deleted ✓ | id: ${id}`,
+			`${req.method} ${req.baseUrl} - Grade GET ✓ | id: ${id}`,
 		);
-		res.send({ message: `Grade with id: ${id}, was successfully deleted!` });
+		res.send(data.grades[index]);
 	} catch (err) {
 		next(err);
 	}

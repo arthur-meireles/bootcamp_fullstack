@@ -156,10 +156,10 @@ router.get('/average', async (req, res, next) => {
         total = total / data.length;
         
         global.logger.info(
-			`${req.method} ${req.originalUrl} - Calculating averages... [ Total: ${total}]`,
+			`${req.method} ${req.originalUrl} - Calculating averages for [${subject}, ${type}]`,
 		);
 
-		res.send(`[ Total: ${total}]`);
+		res.json(total);
 	} catch (err) {
         next(err);
     }
@@ -177,9 +177,9 @@ router.get('/best', async (req, res, next) => {
 		data = _.orderBy(data, ['value'],['desc']);
         
         const best = data.slice(0,3);
-        // global.logger.info(
-		// 	`${req.method} ${req.originalUrl} - Calculating averages... [ Total: ${total}]`,
-		// );
+        global.logger.info(
+			`${req.method} ${req.originalUrl} - Get best grades with [${subject}, ${type} ]`,
+		);
 
 		res.json(best);
 	} catch (err) {

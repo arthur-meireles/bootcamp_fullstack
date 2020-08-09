@@ -1,5 +1,6 @@
 import express from 'express';
 import { promises as fs } from 'fs';
+import _ from 'lodash';
 
 const router = express.Router();
 const { readFile, writeFile } = fs;
@@ -136,6 +137,54 @@ router.get('/total', async (req, res, next) => {
 	} catch (err) {
 		next(err);
 	}
+});
+
+/* ---- Get grade average ---- */
+router.get('/average', async (req, res, next) => {
+	try {
+		let { subject, type } = req.body;
+		let data = JSON.parse(await readFile(`${global.path}`));
+
+		data = data.grades.filter(grade => grade.subject === subject);
+		data = data.filter(grade => grade.type == type);
+
+		let arrayOfValues = data.map(data => {
+			return data.value;
+		});
+
+		let total = arrayOfValues.reduce((accum, curr) => accum + curr);
+        total = total / data.length;
+        
+        global.logger.info(
+			`${req.method} ${req.originalUrl} - Calculating averages... [ Total: ${total}]`,
+		);
+
+		res.send(`[ Total: ${total}]`);
+	} catch (err) {
+        next(err);
+    }
+});
+
+/* ---- Get grade average ---- */
+router.get('/best', async (req, res, next) => {
+	try {
+		let { subject, type } = req.body;
+		let data = JSON.parse(await readFile(`${global.path}`));
+
+		data = data.grades.filter(grade => grade.subject === subject);
+		data = data.filter(grade => grade.type == type);
+
+		data = _.orderBy(data, ['value'],['desc']);
+        
+        const best = data.slice(0,3);
+        // global.logger.info(
+		// 	`${req.method} ${req.originalUrl} - Calculating averages... [ Total: ${total}]`,
+		// );
+
+		res.json(best);
+	} catch (err) {
+        next(err);
+    }
 });
 
 //tratando erros

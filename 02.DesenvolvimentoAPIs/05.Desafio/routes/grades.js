@@ -153,16 +153,16 @@ router.get('/average', async (req, res, next) => {
 		});
 
 		let total = arrayOfValues.reduce((accum, curr) => accum + curr);
-        total = total / data.length;
-        
-        global.logger.info(
+		total = total / data.length;
+
+		global.logger.info(
 			`${req.method} ${req.originalUrl} - Calculating averages for [${subject}, ${type}]`,
 		);
 
 		res.json(total);
 	} catch (err) {
-        next(err);
-    }
+		next(err);
+	}
 });
 
 /* ---- Get grade average ---- */
@@ -174,17 +174,17 @@ router.get('/best', async (req, res, next) => {
 		data = data.grades.filter(grade => grade.subject === subject);
 		data = data.filter(grade => grade.type == type);
 
-		data = _.orderBy(data, ['value'],['desc']);
-        
-        const best = data.slice(0,3);
-        global.logger.info(
+		data = _.orderBy(data, ['value'], ['desc']);
+
+		const best = data.slice(0, 3);
+		global.logger.info(
 			`${req.method} ${req.originalUrl} - Get best grades with [${subject}, ${type} ]`,
 		);
 
 		res.json(best);
 	} catch (err) {
-        next(err);
-    }
+		next(err);
+	}
 });
 
 //tratando erros

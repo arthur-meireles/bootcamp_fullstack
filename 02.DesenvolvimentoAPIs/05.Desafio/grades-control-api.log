@@ -1,0 +1,11 @@
+2020-08-09T19:23:21.020Z [grades-control] warn: Ops, file not found.
+2020-08-09T19:23:21.036Z [grades-control] warn: Let's solve it now .... Solved!
+2020-08-09T19:23:24.571Z [grades-control] info: All right here, rising aplication...
+2020-08-09T19:23:28.079Z [grades-control] info: POST /grades - Grade Created ✓ | id: 49
+2020-08-09T19:23:39.814Z [grades-control] info: GET /grades/search?id=49 - Grade GET ✓ | id: 49
+2020-08-09T19:23:46.263Z [grades-control] info: DELETE /grades/delete?id=49 - Grade Deleted ✓ | id: 49
+2020-08-09T19:23:48.406Z [grades-control] error: GET /grades - [ERROR ✗]: Nothing with this id was found.
+2020-08-09T19:23:54.062Z [grades-control] info: GET /grades/total - Calculating grades [Student: Roberto Achar | Subject: 03 - React | Total: 60]
+2020-08-09T19:23:56.370Z [grades-control] info: GET /grades/best - Get best grades with [03 - React, Trabalho Prático ]
+2020-08-09T19:23:58.512Z [grades-control] info: GET /grades/average - Calculating averages for [04 - MongoDB, Trabalho Prático]
+2020-08-09T19:24:04.799Z [grades-control] error: DELETE /grades - [ERROR ✗]: Nothing with this id was found.

@@ -69,7 +69,7 @@ Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculad
 <a href="https://share.vidyard.com/watch/bZiFNfCYNmqzPtZ2kUDwi8?" target="_blank">Ver vídeo</a>
 
 <br>
-<p>No desafio, desenvolvi uma API quetrabalha em cima de um arquivo json contendo 48 grades de alunos ja cadastradas, </p>
+<p>No desafio, desenvolvi uma API que trabalha em cima de um arquivo json contendo 48 grades de alunos ja cadastradas. Foram desenvolvidas as rotas padroes de um crud completo, uma rota para o calculo da média de notas por matéria, e uma rota que retorna as 3 maiores notas, de forma decrescente, de acordo com a matéria selecionada. A API gera também logs com a biblioteca winston, criando logs com niveis, facilitando o rastreio de um erro em produção.</p>
 
 <hr style="width:30%;">
 

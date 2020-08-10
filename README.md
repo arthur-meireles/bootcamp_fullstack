@@ -18,7 +18,8 @@
 
 <p align="center">
   <a href="#-bootcamp">O Bootcamp</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-módulo-01">Módulo 01</a>
+  <a href="#-módulo-01">Módulo 01</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-módulo-02">Módulo 02</a>
 </p>
 
 
@@ -48,6 +49,29 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 <br>
 <p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e vários métodos de manipulação de arrays trazidos pelo ES6. Também me esforcei em entregar algo responsivo.</p>
 
+## 👨‍💻 Módulo 02
+<h4>Trabalho prático</h4>
+<br>
+
+<img src="https://play.vidyard.com/dc7CA58mTxAivdrdY1MfDe.jpg"/>
+
+<a href="https://share.vidyard.com/watch/dc7CA58mTxAivdrdY1MfDe?" target="_blank">Ver vídeo</a>
+
+<br>
+<p>Foi desenvolvido uma aplicação em Node.js, utilizando bibliotecas nativas como o Filesystem para a leitura e escrita de arquivos .json. 
+Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculados por id. A aplicação percorre esses dois arquivos e trabalha esses dados, com muita manipulação de arrays e assincronicidade, trazendo diversas informações coletadas apartir desses dados.</p>
+
+<hr style="width:30%;">  
+<h4>Desafio</h4>
+<br>
+<img src="https://play.vidyard.com/bZiFNfCYNmqzPtZ2kUDwi8.jpg"/>
+
+<a href="https://share.vidyard.com/watch/bZiFNfCYNmqzPtZ2kUDwi8?" target="_blank">Ver vídeo</a>
+
+<br>
+<p>No desafio, desenvolvi uma API quetrabalha em cima de um arquivo json contendo 48 grades de alunos ja cadastradas, </p>
+
 <hr style="width:30%;">
+
 
 Feito com ♥ por mim. 

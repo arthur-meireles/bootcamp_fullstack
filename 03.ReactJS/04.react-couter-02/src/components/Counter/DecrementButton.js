@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 export default class DecrementeButton extends Component {
-
-    handleButton = () => {
-        this.props.onDecrement('-');
-    }
+	handleButton = () => {
+		this.props.onDecrement('-');
+	};
 
 	render() {
 		return (

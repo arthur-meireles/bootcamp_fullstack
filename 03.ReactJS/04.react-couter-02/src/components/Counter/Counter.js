@@ -37,10 +37,10 @@ export default class Counter extends Component {
 
 		return (
 			<div className={css.counterContainer}>
-				<DecrementButton onDecrement={this.handleButton} />
-				<Value value={currentCounter} />
-				<IncrementButton onIncrement={this.handleButton} />
-				<Steps steps={steps}/>
+				<DecrementButton onDecrement={this.handleButton} step={this.steps} />
+				<Value value={currentCounter} step={this.steps} />
+				<IncrementButton onIncrement={this.handleButton} step={this.steps} />
+				<Steps steps={steps} />
 			</div>
 		);
 	}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import User from './User';
 
 export default class Users extends Component {
 	constructor() {
@@ -11,9 +12,11 @@ export default class Users extends Component {
 
 	componentDidMount() {
 		console.log('componentDidMount de Users.js');
-		const { secondsVisible } = this.state;
+
 		this.interval = setInterval(() => {
-			this.setState({ secondsVisible: secondsVisible + 1 });
+			this.setState({
+				secondsVisible: this.state.secondsVisible + 1,
+			});
 		}, 1000);
 	}
 
@@ -22,6 +25,7 @@ export default class Users extends Component {
 	}
 
 	componentWillUnmount() {
+		clearInterval(this.interval);
 		console.log('ComponentWillUnmount de Users.js');
 	}
 
@@ -31,15 +35,12 @@ export default class Users extends Component {
 
 		return (
 			<div>
-				<p>Componente visível por: {secondsVisible}</p>
-				{users.map(user => {
-					const { login, name, picture } = user;
-					return (
-						<div>
-							<p key={login.uuid}>{name.first}</p>
-						</div>
-					);
-				})}
+				<p>Componente visível por: {secondsVisible} segundos</p>
+				<ul>
+					{users.map(user => {
+						return <User user={user}/>;
+					})}
+				</ul>
 			</div>
 		);
 	}

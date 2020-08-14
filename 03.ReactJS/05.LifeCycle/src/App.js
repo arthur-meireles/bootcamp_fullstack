@@ -3,8 +3,9 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './index.css';
 import Users from './components/users/Users';
 import './index.css';
-import 'antd/dist/antd.css';
-import { Switch } from 'antd';
+import { FormCheckbox } from "shards-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css"
 
 export default class App extends Component {
 	constructor() {
@@ -30,11 +31,12 @@ export default class App extends Component {
 	}
 
 	componentWillUnmount() {
-		console.log('ComponentDidWillUnmount de app.js');
+		console.log('ComponentWillUnmount de app.js');
 	}
 
-	handleShowUsers = event => {
-		this.setState({ showUsers: event });
+	handleShowUsers = () => {
+    const {showUsers} = this.state;;
+		this.setState({ showUsers: !showUsers });
 	};
 
 	render() {
@@ -44,7 +46,11 @@ export default class App extends Component {
         <div>
         <label>
           Show users: 
-        <Switch onChange={this.handleShowUsers} />
+          <FormCheckbox
+        toggle
+        checked={showUsers}
+        onChange={this.handleShowUsers}>
+      </FormCheckbox>
         </label>
         </div>
 				<hr />

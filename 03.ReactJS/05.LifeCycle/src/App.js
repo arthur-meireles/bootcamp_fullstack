@@ -29,12 +29,11 @@ export default class App extends Component {
 		console.log('ComponentDidUpdate de app.js');
 	}
 
-	componentDidWillUnmount() {
+	componentWillUnmount() {
 		console.log('ComponentDidWillUnmount de app.js');
 	}
 
 	handleShowUsers = event => {
-    console.log(event);
 		this.setState({ showUsers: event });
 	};
 
@@ -49,7 +48,7 @@ export default class App extends Component {
         </label>
         </div>
 				<hr />
-				
+				{showUsers && <Users users={users}/>}
 			</div>
 		);
 	}

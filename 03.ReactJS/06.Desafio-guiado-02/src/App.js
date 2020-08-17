@@ -21,29 +21,43 @@ export default class App extends Component {
 			return {
 				id: numericCode,
 				name,
+				filterName: name.toLowerCase(),
 				flag,
 				population,
 			};
 		});
 
-    this.setState({ allCountries, filteredCountries: allCountries });
-  }
+		this.setState({
+			allCountries,
+			filteredCountries: Object.assign([], allCountries),
+		});
+	}
+
+	handleChangeFilter = newText => {
+		this.setState({
+			filter: newText,
+		});
+    const filterLowercase = newText.toLowerCase();
   
-  handleChangeFilter = (newFilter) => {
-    console.log(newFilter);
-      this.setState({
-        filter: newFilter,
-      })
-  }
+		const filteredCountries = this.state.allCountries.filter(country => {
+			return country.filterName.includes(filterLowercase);
+    });
+    
+    
+
+		this.setState({
+			filteredCountries,
+		});
+	};
 
 	render() {
-		const { allCountries, filter } = this.state;
+		const { filteredCountries, filter } = this.state;
 
 		return (
 			<div className="container">
 				<h1>React Countries</h1>
 				<Header filter={filter} onChangeFilter={this.handleChangeFilter} />
-				<Countries countries={allCountries} />
+				<Countries countries={filteredCountries} />
 			</div>
 		);
 	}

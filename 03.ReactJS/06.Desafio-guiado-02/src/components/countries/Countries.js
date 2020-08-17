@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Country from './Country';
+import { ListGroup } from "shards-react";
 
 export default class Countries extends Component {
 	render() {
@@ -9,9 +10,9 @@ export default class Countries extends Component {
 				<ul>
 					{countries.map((country) => {
 						return (
-							<li key={country.id}>
+							<ListGroup key={country.id}>
 								<Country country={country} />
-							</li>
+							</ListGroup>
 						);
 					})}
 				</ul>

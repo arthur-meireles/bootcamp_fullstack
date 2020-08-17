@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Country from './Country';
 import { ListGroup } from "shards-react";
+import css from './country.module.css';
 
 export default class Countries extends Component {
 	render() {
@@ -10,7 +11,7 @@ export default class Countries extends Component {
 				<ul>
 					{countries.map((country) => {
 						return (
-							<ListGroup key={country.id}>
+							<ListGroup className={css.container} key={country.id}>
 								<Country country={country} />
 							</ListGroup>
 						);

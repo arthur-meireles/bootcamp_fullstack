@@ -26,6 +26,12 @@ export default class Inputs extends Component {
 					right: '30px',
 				}}
 				direction="column"
+				animation={{
+					type: 'slideRight',
+					delay: 0,
+					duration: 3000,
+					size: 'large',
+				}}
 			>
 				<FormField label="Salário Bruto">
 					<TextInput type="number" onChange={this.handleInputChange} />

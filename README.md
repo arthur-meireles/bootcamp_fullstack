@@ -30,7 +30,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 
 
 ## 👨‍💻 Módulo 01
-<h4>Trabalho prático</h4>
+<h3>Trabalho prático 01</h3>
 <br>
 
 <img src="https://play.vidyard.com/fMbEakjWrvyLGU2dNAErCV.jpg"/>
@@ -39,8 +39,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 
 <p>Foi desenvolvido um color picker, onde a cada interação com os input representasse um aspecto RGB, exibindo na tela a cor que está sendo formada. Projeto criado utilizando somente HTML/CSS + Javascript puro e muita manipulação da DOM</p>
 
-<hr style="width:30%;">  
-<h4>Desafio</h4>
+<h3>Desafio 02</h3>
 <br>
 <img src="https://play.vidyard.com/iVPVyCfgQVFsEeoxoNvCCn.jpg"/>
 
@@ -49,7 +48,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 <p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e vários métodos de manipulação de arrays trazidos pelo ES6. Também me esforcei em entregar algo responsivo.</p>
 
 ## 👨‍💻 Módulo 02
-<h4>Trabalho prático</h4>
+<h3>Trabalho prático 02</h3>
 <br>
 
 <img src="https://play.vidyard.com/dc7CA58mTxAivdrdY1MfDe.jpg"/>
@@ -59,8 +58,8 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 <p>Foi desenvolvido uma aplicação em Node.js, utilizando bibliotecas nativas como o Filesystem para a leitura e escrita de arquivos .json. 
 Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculados por id. A aplicação percorre esses dois arquivos e trabalha esses dados, com muita manipulação de arrays e assincronicidade, trazendo diversas informações coletadas apartir desses dados.</p>
 
-<hr style="width:30%;">  
-<h4>Desafio</h4>
+ 
+<h3>Desafio 02</h3>
 <br>
 <img src="https://play.vidyard.com/bZiFNfCYNmqzPtZ2kUDwi8.jpg"/>
 

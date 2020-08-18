@@ -9,7 +9,6 @@ export default class AppBar extends Component {
 				tag="header"
 				direction="row"
 				align="center"
-				justify="left"
 				background="brand"
 				pad={{ left: 'medium', right: 'small', vertical: 'small' }}
 				elevation="medium"

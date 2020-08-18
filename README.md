@@ -47,6 +47,8 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 
 <p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e vários métodos de manipulação de arrays trazidos pelo ES6. Também me esforcei em entregar algo responsivo.</p>
 
+<br>
+
 ## 👨‍💻 Módulo 02
 <h3>Trabalho prático 02</h3>
 <br>

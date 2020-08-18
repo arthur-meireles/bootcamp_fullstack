@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet'
-import theme from './theme';
+import mainTheme from './themes/mainTheme.js';
 import AppBar from './components/Appbar/AppBar';
 
 function App() {
   return (
-   <Grommet theme={theme}>
+   <Grommet theme={mainTheme}>
      <AppBar/>
    </Grommet>
   );

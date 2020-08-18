@@ -1,4 +1,4 @@
-const theme = {
+const mainTheme = {
     global: {
         colors: {
             brand: '#7d4cdb'
@@ -11,4 +11,4 @@ const theme = {
     },
   };
    
-  export default theme;
+  export default mainTheme;

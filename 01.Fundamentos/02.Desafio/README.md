@@ -3,10 +3,10 @@
 </h1>
 
 <div align="center">
-  <img src="https://play.vidyard.com/fMbEakjWrvyLGU2dNAErCV.jpg"/>
+ <img src="https://play.vidyard.com/iVPVyCfgQVFsEeoxoNvCCn.jpg"/>
 
-<a href="https://share.vidyard.com/watch/fMbEakjWrvyLGU2dNAErCV?" target="_blank">Ver vídeo completo</a>
+<a href="https://share.vidyard.com/watch/iVPVyCfgQVFsEeoxoNvCCn?" target="_blank">Ver vídeo</a>
 
-<p>Foi desenvolvido um color picker, onde a cada interação com os input representasse um aspecto RGB, exibindo na tela a cor que está sendo formada. Projeto criado utilizando somente HTML/CSS + Javascript puro e muita manipulação da DOM</p>
+<p>No desafio, tive que desenvolver uma aplicação que consome uma API utilizando os conceitos de promise e async/await. Foi utilizado também a manipulação da DOM e vários métodos de manipulação de arrays trazidos pelo ES6. Também me esforcei em entregar algo responsivo.</p>
 
 </div>

@@ -3,28 +3,42 @@ import { Grommet, Box } from 'grommet';
 import mainTheme from './themes/mainTheme.js';
 import AppBar from './components/Appbar/AppBar';
 import Inputs from './components/Input/Inputs.js';
+import { calculateSalaryFrom } from './helpers/salaryHelper.js';
 
 export default class App extends Component {
 	constructor() {
 		super();
 
 		this.state = {
-			salary: 0,
+			fullSalary: 0,
+			calculations: [],
 		};
 	}
+	handleInputChange = fullSalary => {
+		let calculate = calculateSalaryFrom(fullSalary);
+		this.setState({
+			fullSalary,
+			calculations: calculate,
+		});
+	};
 
 	render() {
-		return(
-		<Grommet theme={mainTheme} full>
-			<Box fill>
-				<AppBar />
-				<Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-					<Box flex align="stretch" margin="10px">
-						<Inputs />
+		const { fullSalary, calculations } = this.state;
+		return (
+			<Grommet theme={mainTheme} full>
+				<Box fill>
+					<AppBar />
+					<Box direction="row" flex>
+						<Box flex align="stretch" margin="10px">
+							<Inputs
+								onChange={this.handleInputChange}
+								salary={fullSalary}
+								calculations={calculations}
+							/>
+						</Box>
 					</Box>
 				</Box>
-			</Box>
-		</Grommet>
-		)
+			</Grommet>
+		);
 	}
 }

@@ -1,5 +1,5 @@
 <h1 align="center">
-  🚀 rabalho Prático 01
+  🚀 Trabalho Prático 01
 </h1>
 
 <div align="center">

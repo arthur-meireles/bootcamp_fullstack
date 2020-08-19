@@ -8,7 +8,7 @@ import { calculateSalaryFrom } from './helpers/salaryHelper.js';
 export default class App extends Component {
 	constructor() {
 		super();
-
+		
 		this.state = {
 			fullSalary: 0,
 			calculations: [],

@@ -7,16 +7,22 @@ export default class Inputs extends Component {
 		let fullSalary = event.target.value;
 		this.props.onChange(fullSalary);
 	};
+	
+	formatter = value => {
+		let formated = formatNumber(value);
+		console.log(typeof formated)
+		if (formated === 'NaN') return formated = 0;
+		return formated;
+	};
 
 	render() {
-		const { calculations } = this.props;
 		const {
 			baseINSS,
 			discountINSS,
 			baseIRPF,
 			discountIRPF,
 			netSalary,
-		} = calculations;
+		} = this.props.calculations;
 
 		return (
 			<Box
@@ -40,23 +46,23 @@ export default class Inputs extends Component {
 
 				<Box direction="row" gap="medium">
 					<FormField label="Base INSS" width="medium">
-						<TextInput disabled={true} value={formatNumber(baseINSS)} />
+						<TextInput disabled={true} value={this.formatter(baseINSS)} />
 					</FormField>
 
 					<FormField label="Desconto INSS" width="medium">
-						<TextInput disabled={true} value={formatNumber(discountINSS)} />
+						<TextInput disabled={true} value={this.formatter(discountINSS)} />
 					</FormField>
 
 					<FormField label="Base IRPF" width="medium">
-						<TextInput disabled={true} value={formatNumber(baseIRPF)} />
+						<TextInput disabled={true} value={this.formatter(baseIRPF)} />
 					</FormField>
 
 					<FormField label="Desconto IRPF" width="medium">
-						<TextInput disabled={true} value={formatNumber(discountIRPF)} />
+						<TextInput disabled={true} value={this.formatter(discountIRPF)} />
 					</FormField>
 				</Box>
 				<FormField label="Salário líquido">
-					<TextInput disabled={true} value={formatNumber(netSalary)} />
+					<TextInput disabled={true} value={this.formatter(netSalary)} />
 				</FormField>
 			</Box>
 		);

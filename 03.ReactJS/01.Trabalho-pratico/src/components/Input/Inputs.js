@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { FormField, TextInput, Box } from 'grommet';
+import { FormField, TextInput, Box, Meter } from 'grommet';
 import { formatNumber } from '../../helpers/formatNumber';
 import { percentageFrom } from '../../helpers/percentageHelper';
+import { Currency } from 'grommet-icons';
 
 export default class Inputs extends Component {
+
 	handleInputChange = event => {
 		let fullSalary = event.target.value;
 		this.props.onChange(fullSalary);
@@ -16,10 +18,10 @@ export default class Inputs extends Component {
 
 	formatterWithPercentage = value => {
 		const { salary } = this.props;
-		let percentage = percentageFrom(salary, value);
+		let percent = percentageFrom(salary, value);
 		let formated = formatNumber(value);
 		if (formated === 'NaN') return (formated = 0);
-		const result = `R$ ${formated} (${percentage}%)`;
+		const result = `R$ ${formated} (${percent}%)`;
 		return result;
 	};
 
@@ -53,7 +55,8 @@ export default class Inputs extends Component {
 					<TextInput
 						type="number"
 						onChange={this.handleInputChange}
-						color="blue"
+						color="#FFF"
+						icon={<Currency />}
 					/>
 				</FormField>
 
@@ -63,7 +66,10 @@ export default class Inputs extends Component {
 					</FormField>
 
 					<FormField label="Desconto INSS" width="medium">
-						<TextInput value={this.formatterWithPercentage(discountINSS)} />
+						<TextInput
+							value={this.formatterWithPercentage(discountINSS)}
+							color="accent-4"
+						/>
 					</FormField>
 
 					<FormField label="Base IRPF" width="medium">
@@ -78,10 +84,19 @@ export default class Inputs extends Component {
 					</FormField>
 				</Box>
 				<FormField label="Salário líquido">
-					<TextInput
-						value={this.formatterWithPercentage(netSalary)}
-					/>
+					<TextInput value={this.formatterWithPercentage(netSalary)} />
 				</FormField>
+				<Meter
+					margin={{top: 'medium'}}
+					width='full'
+					values={[
+						{
+							color: 'brand',
+							value: 95,
+						},
+					]}
+					aria-label="meter"
+				/>
 			</Box>
 		);
 	}

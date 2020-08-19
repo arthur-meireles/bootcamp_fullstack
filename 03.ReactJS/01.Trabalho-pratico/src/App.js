@@ -5,6 +5,7 @@ import AppBar from './components/Appbar/AppBar';
 import Inputs from './components/Input/Inputs.js';
 import { calculateSalaryFrom } from './helpers/salaryHelper.js';
 
+
 export default class App extends Component {
 	constructor() {
 		super();
@@ -21,7 +22,7 @@ export default class App extends Component {
 			calculations: calculate,
 		});
 	};
-
+	
 	render() {
 		const { fullSalary, calculations } = this.state;
 		return (

@@ -16,7 +16,7 @@ export default class AppBar extends Component {
 				animation={{
 					type: 'slideDown',
 					delay: 0,
-					duration: 3000,
+					duration: 800,
 					size: 'large',
 				}}
 			>

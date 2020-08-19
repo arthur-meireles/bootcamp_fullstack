@@ -22,6 +22,7 @@ export default class Inputs extends Component {
 		let formated = formatNumber(value);
 		if (formated === 'NaN') return (formated = 0);
 		const result = `R$ ${formated} (${percent}%)`;
+		
 		return result;
 	};
 
@@ -47,7 +48,7 @@ export default class Inputs extends Component {
 				animation={{
 					type: 'slideRight',
 					delay: 0,
-					duration: 800,
+					duration:2000,
 					size: 'large',
 				}}
 			>
@@ -86,17 +87,7 @@ export default class Inputs extends Component {
 				<FormField label="Salário líquido">
 					<TextInput value={this.formatterWithPercentage(netSalary)} />
 				</FormField>
-				<Meter
-					margin={{top: 'medium'}}
-					width='full'
-					values={[
-						{
-							color: 'brand',
-							value: 95,
-						},
-					]}
-					aria-label="meter"
-				/>
+			
 			</Box>
 		);
 	}

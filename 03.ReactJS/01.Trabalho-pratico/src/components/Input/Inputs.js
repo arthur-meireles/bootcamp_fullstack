@@ -34,8 +34,12 @@ export default class Inputs extends Component {
 			netSalary,
 		} = this.props.calculations;
 
-		const bar1 = (discountINSS / baseINSS) * 100;
-		const bar2 = (discountIRPF / baseINSS) * 100;
+		let bar1 = 0;
+		let bar2 = 0;
+		if (discountINSS > 0) {
+			bar1 = (discountINSS / baseINSS) * 100;
+			bar2 = (discountIRPF / baseINSS) * 100;
+		} 
 
 		return (
 			<Box

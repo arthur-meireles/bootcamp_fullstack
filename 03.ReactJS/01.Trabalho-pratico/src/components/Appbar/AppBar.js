@@ -21,7 +21,7 @@ export default class AppBar extends Component {
 				}}
 			>
 				<Money />
-                <Heading level="3" margin={{left: '20px', right: '20px'}}>React Salary</Heading>
+                <Heading level="3" margin={{left: '20px', right: '20px'}}>React Salário</Heading>
 				<Clock type="digital" />
 				
 			</Box>

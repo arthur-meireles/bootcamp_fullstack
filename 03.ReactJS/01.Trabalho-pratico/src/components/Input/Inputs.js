@@ -102,7 +102,7 @@ export default class Inputs extends Component {
 				>
 					<Bar value={bar1} text="INSS" color="#e67e22" />
 					<Bar value={bar2} text="IRPF" color="#c0392b" />
-					<Bar value={100} text="Liquid Salary" border={2} />
+					<Bar value={100} text="Sálario Líquido" border={2} />
 				</div>
 			</Box>
 		);

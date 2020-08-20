@@ -5,8 +5,8 @@ const mainTheme = {
 		},
 		font: {
 			family: 'Roboto',
-			size: '20px',
-			height: '30px',
+			size: '1.3rem',
+			height: '1.2rem',
 		},
 	},
 };

@@ -57,7 +57,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 
 <a href="https://share.vidyard.com/watch/dc7CA58mTxAivdrdY1MfDe?" target="_blank">Ver vídeo</a>
 
-<p>Foi desenvolvido uma aplicação em Node.js, utilizando bibliotecas nativas como o Filesystem para a leitura e escrita de arquivos .json. 
+<p>Foi desenvolvida uma aplicação em Node.js, utilizando bibliotecas nativas como o Filesystem para a leitura e escrita de arquivos .json. 
 Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculados por id. A aplicação percorre esses dois arquivos e trabalha esses dados, com muita manipulação de arrays e assincronicidade, trazendo diversas informações coletadas apartir desses dados.</p>
 
  
@@ -69,7 +69,18 @@ Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculad
 
 <p>No desafio, desenvolvi uma API que trabalha em cima de um arquivo json contendo 48 grades de alunos ja cadastradas. Foram desenvolvidas as rotas padroes de um crud completo, uma rota para o calculo da média de notas por matéria, e uma rota que retorna as 3 maiores notas, de forma decrescente, de acordo com a matéria selecionada. A API gera também logs com a biblioteca winston, criando logs com niveis, facilitando o rastreio de um erro em produção.</p>
 
-<hr style="width:30%;">
+<br>
+
+## 👨‍💻 Módulo 03
+<h3>Trabalho prático 03</h3>
+<br>
+
+<img src="https://play.vidyard.com/BanvxTdMyBzbz878hmpNmR.jpg"/>
+
+<a href="https://share.vidyard.com/watch/BanvxTdMyBzbz878hmpNmR?" target="_blank">Ver vídeo</a>
+
+<p>Foi desenvolvida uma aplicação em React, utilizando o conhecimentos adiquiridos até o meio do módulo, tais como: class components, state, props. Utilizei os componentes do Grommet v2 para a estilização do App.</p>
+
 
 
 Feito com ♥ por mim. 

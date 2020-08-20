@@ -27,7 +27,7 @@
 <p align="center">
   <a href="#-módulo-01">Módulo 01</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-módulo-02">Módulo 02</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-módulo-03">Módulo 03</a>
+  <a href="#%EF%B8%8F-módulo-03">Módulo 03</a>
 </p>
 
 

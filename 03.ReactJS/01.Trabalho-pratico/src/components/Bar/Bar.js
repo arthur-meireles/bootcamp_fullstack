@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Bar extends Component {
 	render() {
-		const { value, color = '#7d4cdb' } = this.props;
+		const { value=0, text='', color = '#16a085', border = '2' } = this.props;
 
 		return (
 			<div
@@ -11,8 +11,18 @@ export default class Bar extends Component {
 					width: value + '%',
 					height: '30px',
 					backgroundColor: color,
+					borderRadius: border + 'px',
 				}}
-			/>
+			>
+				<a
+					style={{
+						color: 'white',
+						marginLeft: '5px',
+					}}
+				>
+					<strong>{text}</strong>
+				</a>
+			</div>
 		);
 	}
 }

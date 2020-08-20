@@ -4,7 +4,7 @@ import mainTheme from './themes/mainTheme.js';
 import AppBar from './components/Appbar/AppBar';
 import Inputs from './components/Input/Inputs.js';
 import { calculateSalaryFrom } from './helpers/salaryHelper.js';
-import Bar from './components/Bar/Bar.js';
+
 
 export default class App extends Component {
 	constructor() {
@@ -36,27 +36,7 @@ export default class App extends Component {
 								salary={fullSalary}
 								calculations={calculations}
 							/>
-							<Box
-								animation={{
-									type: 'slideLeft',
-									delay: 0,
-									duration: 2300,
-									size: 'large',
-								}}
-							>
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'row',
-										alignItems: 'center',
-										justifyContent: 'center',
-									}}
-								>
-									<Bar value={30} color="yellow" />
-									<Bar value={30} color="blue" />
-									<Bar value={100} />
-								</div>
-							</Box>
+							
 						</Box>
 					</Box>
 				</Box>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { FormField, TextInput, Box, Meter } from 'grommet';
+import { FormField, TextInput, Box } from 'grommet';
 import { formatNumber } from '../../helpers/formatNumber';
 import { percentageFrom } from '../../helpers/percentageHelper';
 import { Currency } from 'grommet-icons';
+import Bar from '../Bar/Bar.js';
 
 export default class Inputs extends Component {
-
 	handleInputChange = event => {
 		let fullSalary = event.target.value;
 		this.props.onChange(fullSalary);
@@ -22,19 +22,20 @@ export default class Inputs extends Component {
 		let formated = formatNumber(value);
 		if (formated === 'NaN') return (formated = 0);
 		const result = `R$ ${formated} (${percent}%)`;
-		
 		return result;
 	};
 
 	render() {
 		const {
-			salary,
 			baseINSS,
 			discountINSS,
 			baseIRPF,
 			discountIRPF,
 			netSalary,
 		} = this.props.calculations;
+
+		const bar1 = (discountINSS / baseINSS) * 100;
+		const bar2 = (discountIRPF / baseINSS) * 100;
 
 		return (
 			<Box
@@ -46,9 +47,9 @@ export default class Inputs extends Component {
 				}}
 				direction="column"
 				animation={{
-					type: 'slideRight',
+					type: 'slideLeft',
 					delay: 0,
-					duration:2000,
+					duration: 2000,
 					size: 'large',
 				}}
 			>
@@ -87,7 +88,18 @@ export default class Inputs extends Component {
 				<FormField label="Salário líquido">
 					<TextInput value={this.formatterWithPercentage(netSalary)} />
 				</FormField>
-			
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<Bar value={bar1} text="INSS" color="#e67e22" />
+					<Bar value={bar2} text="IRPF" color="#c0392b" />
+					<Bar value={100} text="Liquid Salary" border={2} />
+				</div>
 			</Box>
 		);
 	}

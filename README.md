@@ -8,6 +8,8 @@
 </h1>
 
 <p align="center">
+   <img alt="Repo author" src="https://img.shields.io/badge/author-arthur__meireles-brightgreen">
+    
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/arthur-meireles/bootcamp_fullstack">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/arthur-meireles/bootcamp_fullstack">
@@ -18,18 +20,18 @@
 </p>
 
 <p align="center">
-  <a href="#-bootcamp">O Bootcamp</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-módulo-01">Módulo 01</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-módulo-02">Módulo 02</a>
+  <a href="#-módulo-02">Módulo 02</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-módulo-03">Módulo 03</a>
 </p>
 
 
-## 💻 Bootcamp
+## ⛺ Bootcamp
 
 O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intensiva e que habilite o profissional para atuar como desenvolvedor Full Stack.
 
 
-## 👨‍💻 Módulo 01
+## 💻 Módulo 01
 <h3>Trabalho prático 01</h3>
 <br>
 
@@ -71,7 +73,7 @@ Este projeto lê dois arquivos .json (estados e cidades), os estes são vinculad
 
 <br>
 
-## 👨‍💻 Módulo 03
+## ⚛️ Módulo 03
 <h3>Trabalho prático 03</h3>
 <br>
 

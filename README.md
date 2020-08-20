@@ -41,7 +41,7 @@ O Bootcamp tem como objetivo oferecer uma formação prática de 2 meses, intens
 
 <p>Foi desenvolvido um color picker, onde a cada interação com os input representasse um aspecto RGB, exibindo na tela a cor que está sendo formada. Projeto criado utilizando somente HTML/CSS + Javascript puro e muita manipulação da DOM</p>
 
-<h3>Desafio 02</h3>
+<h3>Desafio 01</h3>
 <br>
 <img src="https://play.vidyard.com/iVPVyCfgQVFsEeoxoNvCCn.jpg"/>
 

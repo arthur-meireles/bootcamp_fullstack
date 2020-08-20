@@ -8,15 +8,20 @@
 </h1>
 
 <p align="center">
-   <img alt="Repo author" src="https://img.shields.io/badge/author-arthur__meireles-brightgreen">
+ 
+  <a href="https://www.linkedin.com/in/o-arthur-meireles/" target="_blank">
+  <img alt="Repo author" src="https://img.shields.io/badge/author-arthur__meireles-brightgreen">
+   </a>
     
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/arthur-meireles/bootcamp_fullstack">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/arthur-meireles/bootcamp_fullstack">
   
-  <a href="https://github.com/arthur-meireles/bootcamp_fullstack/commits/master">
+  <a href="https://github.com/arthur-meireles/bootcamp_fullstack/commits/master" target="_blank">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/arthur-meireles/bootcamp_fullstack">
   </a>
+  
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Farthur-meireles)](https://hits.seeyoufarm.com)
 </p>
 
 <p align="center">

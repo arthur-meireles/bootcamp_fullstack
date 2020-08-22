@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import css from './counter.module.css';
 
-export default class steps extends Component {
-    render() {
+export default function Steps ({steps}){
+   
         return (
             <div>
-                <span className={css.counterValue}>({this.props.steps})</span>
+                <span className={css.counterValue}>({steps})</span>
             </div>
         )
-    }
 }

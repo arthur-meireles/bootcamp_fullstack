@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default function IncrementeButton(props) {
-	const { onIncrement } = props;
+export default function IncrementeButton({ onIncrement }) {
 	const handleButton = () => {
 		onIncrement('+');
 	};

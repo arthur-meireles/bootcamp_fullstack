@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ListGroupItem } from 'shards-react';
 import css from './country.module.css';
 
-export default class Country extends Component {
-	render() {
-		const { country } = this.props;
+export default function Country ({country}) {
 		const { name, flag } = country;
 		return (
 			<ListGroupItem className={css.list}>
@@ -12,5 +10,5 @@ export default class Country extends Component {
 				{name}
 			</ListGroupItem>
 		);
-	}
+
 }

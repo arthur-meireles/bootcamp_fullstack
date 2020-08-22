@@ -7,7 +7,7 @@ const express = require('express');
  * Precisamos de cors para não termos problemas
  * de acesso à API
  */
-var cors = require('cors');
+const cors = require('cors');
 
 /**
  * Instanciando o app com express()
@@ -20,7 +20,9 @@ const app = express();
 app.use(cors());
 
 /**
- * Estado da aplicação
+ * 
+ *            Estado da aplicação
+ * 
  */
 let candidates = [];
 

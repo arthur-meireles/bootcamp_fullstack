@@ -12,32 +12,13 @@ code {
     monospace;
 }
 
-.space {
-  margin: 10px;
-  padding: 10px;
-}
-
-.flex-row {
+.default-flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
 
-.centered {
-  display: flex;
-  justify-content: center;
-}
-
-.first {
-  padding: 100px;
-}
-
-.second {
-  padding: 40px;
-}
-
-.item {
-  margin-left: 10px;
-  margin-right: 10px;
+.padding {
+  padding: 10px;
 }

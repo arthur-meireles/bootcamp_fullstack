@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header';
 
 export default class App extends Component {
 	constructor() {
@@ -46,6 +47,7 @@ export default class App extends Component {
 		}
 		return (
 			<div>
+				<Header>Votação</Header>
 				{candidates.map(({ id, name, votes }) => {
 					return (
 						<p id={id}>

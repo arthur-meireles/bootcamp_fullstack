@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Spinner from './components/Spinner';
 
 export default class App extends Component {
 	constructor() {
@@ -29,21 +30,7 @@ export default class App extends Component {
 		const { candidates } = this.state;
 
 		if (candidates.length === 0) {
-			return (
-				<div className="preloader-wrapper big active">
-					<div className="spinner-layer spinner-blue-only">
-						<div className="circle-clipper left">
-							<div className="circle"></div>
-						</div>
-						<div className="gap-patch">
-							<div className="circle"></div>
-						</div>
-						<div className="circle-clipper right">
-							<div className="circle"></div>
-						</div>
-					</div>
-				</div>
-			);
+			return <Spinner description="Buscando candidatos..."/>;
 		}
 		return (
 			<div>

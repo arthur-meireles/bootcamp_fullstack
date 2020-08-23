@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Spinner from './components/Spinner';
+import Candidates from './components/Candidates';
 
 export default class App extends Component {
 	constructor() {
@@ -30,18 +31,12 @@ export default class App extends Component {
 		const { candidates } = this.state;
 
 		if (candidates.length === 0) {
-			return <Spinner description="Buscando candidatos..."/>;
+			return <Spinner description="Buscando candidatos..." />;
 		}
 		return (
 			<div>
 				<Header>Votação</Header>
-				{candidates.map(({ id, name, votes }) => {
-					return (
-						<p id={id}>
-							{name} ({votes})
-						</p>
-					);
-				})}
+				<Candidates candidates={candidates} />
 			</div>
 		);
 	}

@@ -1,7 +1,7 @@
 .picture {
     border-radius: 50%;
-    max-width: 64px;
-    max-height: 64px;
+    max-width: 80px;
+    max-height: 80px;
     margin: 0 15px;
     align-self: center;
 }

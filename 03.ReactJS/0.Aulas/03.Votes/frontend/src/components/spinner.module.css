@@ -1,0 +1,12 @@
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.description {
+    margin: 0 15px;
+    font-size: 3em;
+}

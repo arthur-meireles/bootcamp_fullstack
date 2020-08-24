@@ -34,7 +34,7 @@ export default class App extends Component {
 			return <Spinner description="Buscando candidatos..." />;
 		}
 		return (
-			<div>
+			<div className="container">
 				<Header>Votação</Header>
 				<Candidates candidates={candidates} />
 			</div>

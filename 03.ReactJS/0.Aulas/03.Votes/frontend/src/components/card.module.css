@@ -1,11 +1,5 @@
-.card {
-    display: flex;
-    align-self: center;
+.cardExtra {
     max-width: 960px;
-    border: 1px solid lightgrey;
     padding: 20px;
     margin: 10px auto;
-    border-radius: 5px;
-    flex-wrap: wrap;
-
 }

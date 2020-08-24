@@ -17,7 +17,7 @@ export default function Spinner({ description }) {
 					</div>
 				</div>
 			</div>
-			<div className={css.description} >{description}</div>
-		</div >
+			<div className={css.description}>{description}</div>
+		</div>
 	);
 }
